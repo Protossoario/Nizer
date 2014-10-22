@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3071FB1919F8083F00A8C0DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB1819F8083F00A8C0DB /* main.m */; };
+		3071FB1C19F8083F00A8C0DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB1B19F8083F00A8C0DB /* AppDelegate.m */; };
+		3071FB1F19F8083F00A8C0DB /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB1E19F8083F00A8C0DB /* FirstViewController.m */; };
+		3071FB2219F8083F00A8C0DB /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB2119F8083F00A8C0DB /* SecondViewController.m */; };
+		3071FB2519F8083F00A8C0DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3071FB2319F8083F00A8C0DB /* Main.storyboard */; };
+		3071FB2719F8083F00A8C0DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3071FB2619F8083F00A8C0DB /* Images.xcassets */; };
+		3071FB2A19F8083F00A8C0DB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3071FB2819F8083F00A8C0DB /* LaunchScreen.xib */; };
+		3071FB3619F8084000A8C0DB /* NizerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB3519F8084000A8C0DB /* NizerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3071FB3019F8084000A8C0DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3071FB0B19F8083F00A8C0DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3071FB1219F8083F00A8C0DB;
+			remoteInfo = Nizer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3071FB1319F8083F00A8C0DB /* Nizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3071FB1719F8083F00A8C0DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3071FB1819F8083F00A8C0DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3071FB1A19F8083F00A8C0DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3071FB1B19F8083F00A8C0DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3071FB1D19F8083F00A8C0DB /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		3071FB1E19F8083F00A8C0DB /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		3071FB2019F8083F00A8C0DB /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		3071FB2119F8083F00A8C0DB /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		3071FB2419F8083F00A8C0DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3071FB2619F8083F00A8C0DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3071FB2919F8083F00A8C0DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3071FB2F19F8084000A8C0DB /* NizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3071FB3419F8084000A8C0DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3071FB3519F8084000A8C0DB /* NizerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NizerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3071FB1019F8083F00A8C0DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3071FB2C19F8084000A8C0DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3071FB0A19F8083F00A8C0DB = {
+			isa = PBXGroup;
+			children = (
+				3071FB1519F8083F00A8C0DB /* Nizer */,
+				3071FB3219F8084000A8C0DB /* NizerTests */,
+				3071FB1419F8083F00A8C0DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3071FB1419F8083F00A8C0DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3071FB1319F8083F00A8C0DB /* Nizer.app */,
+				3071FB2F19F8084000A8C0DB /* NizerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3071FB1519F8083F00A8C0DB /* Nizer */ = {
+			isa = PBXGroup;
+			children = (
+				3071FB1A19F8083F00A8C0DB /* AppDelegate.h */,
+				3071FB1B19F8083F00A8C0DB /* AppDelegate.m */,
+				3071FB1D19F8083F00A8C0DB /* FirstViewController.h */,
+				3071FB1E19F8083F00A8C0DB /* FirstViewController.m */,
+				3071FB2019F8083F00A8C0DB /* SecondViewController.h */,
+				3071FB2119F8083F00A8C0DB /* SecondViewController.m */,
+				3071FB2319F8083F00A8C0DB /* Main.storyboard */,
+				3071FB2619F8083F00A8C0DB /* Images.xcassets */,
+				3071FB2819F8083F00A8C0DB /* LaunchScreen.xib */,
+				3071FB1619F8083F00A8C0DB /* Supporting Files */,
+			);
+			path = Nizer;
+			sourceTree = "<group>";
+		};
+		3071FB1619F8083F00A8C0DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3071FB1719F8083F00A8C0DB /* Info.plist */,
+				3071FB1819F8083F00A8C0DB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3071FB3219F8084000A8C0DB /* NizerTests */ = {
+			isa = PBXGroup;
+			children = (
+				3071FB3519F8084000A8C0DB /* NizerTests.m */,
+				3071FB3319F8084000A8C0DB /* Supporting Files */,
+			);
+			path = NizerTests;
+			sourceTree = "<group>";
+		};
+		3071FB3319F8084000A8C0DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3071FB3419F8084000A8C0DB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3071FB1219F8083F00A8C0DB /* Nizer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3071FB3919F8084000A8C0DB /* Build configuration list for PBXNativeTarget "Nizer" */;
+			buildPhases = (
+				3071FB0F19F8083F00A8C0DB /* Sources */,
+				3071FB1019F8083F00A8C0DB /* Frameworks */,
+				3071FB1119F8083F00A8C0DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nizer;
+			productName = Nizer;
+			productReference = 3071FB1319F8083F00A8C0DB /* Nizer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3071FB2E19F8084000A8C0DB /* NizerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3071FB3C19F8084000A8C0DB /* Build configuration list for PBXNativeTarget "NizerTests" */;
+			buildPhases = (
+				3071FB2B19F8084000A8C0DB /* Sources */,
+				3071FB2C19F8084000A8C0DB /* Frameworks */,
+				3071FB2D19F8084000A8C0DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3071FB3119F8084000A8C0DB /* PBXTargetDependency */,
+			);
+			name = NizerTests;
+			productName = NizerTests;
+			productReference = 3071FB2F19F8084000A8C0DB /* NizerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3071FB0B19F8083F00A8C0DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Eduardo Alberto Sanchez Alvarado";
+				TargetAttributes = {
+					3071FB1219F8083F00A8C0DB = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					3071FB2E19F8084000A8C0DB = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 3071FB1219F8083F00A8C0DB;
+					};
+				};
+			};
+			buildConfigurationList = 3071FB0E19F8083F00A8C0DB /* Build configuration list for PBXProject "Nizer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3071FB0A19F8083F00A8C0DB;
+			productRefGroup = 3071FB1419F8083F00A8C0DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3071FB1219F8083F00A8C0DB /* Nizer */,
+				3071FB2E19F8084000A8C0DB /* NizerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3071FB1119F8083F00A8C0DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3071FB2519F8083F00A8C0DB /* Main.storyboard in Resources */,
+				3071FB2A19F8083F00A8C0DB /* LaunchScreen.xib in Resources */,
+				3071FB2719F8083F00A8C0DB /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3071FB2D19F8084000A8C0DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3071FB0F19F8083F00A8C0DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3071FB2219F8083F00A8C0DB /* SecondViewController.m in Sources */,
+				3071FB1C19F8083F00A8C0DB /* AppDelegate.m in Sources */,
+				3071FB1F19F8083F00A8C0DB /* FirstViewController.m in Sources */,
+				3071FB1919F8083F00A8C0DB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3071FB2B19F8084000A8C0DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3071FB3619F8084000A8C0DB /* NizerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3071FB3119F8084000A8C0DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3071FB1219F8083F00A8C0DB /* Nizer */;
+			targetProxy = 3071FB3019F8084000A8C0DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3071FB2319F8083F00A8C0DB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3071FB2419F8083F00A8C0DB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3071FB2819F8083F00A8C0DB /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3071FB2919F8083F00A8C0DB /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3071FB3719F8084000A8C0DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3071FB3819F8084000A8C0DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3071FB3A19F8084000A8C0DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Nizer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3071FB3B19F8084000A8C0DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Nizer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3071FB3D19F8084000A8C0DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NizerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nizer.app/Nizer";
+			};
+			name = Debug;
+		};
+		3071FB3E19F8084000A8C0DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NizerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nizer.app/Nizer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3071FB0E19F8083F00A8C0DB /* Build configuration list for PBXProject "Nizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3071FB3719F8084000A8C0DB /* Debug */,
+				3071FB3819F8084000A8C0DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3071FB3919F8084000A8C0DB /* Build configuration list for PBXNativeTarget "Nizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3071FB3A19F8084000A8C0DB /* Debug */,
+				3071FB3B19F8084000A8C0DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3071FB3C19F8084000A8C0DB /* Build configuration list for PBXNativeTarget "NizerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3071FB3D19F8084000A8C0DB /* Debug */,
+				3071FB3E19F8084000A8C0DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3071FB0B19F8083F00A8C0DB /* Project object */;
+}
