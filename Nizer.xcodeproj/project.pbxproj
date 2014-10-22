@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		3071FB1919F8083F00A8C0DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB1819F8083F00A8C0DB /* main.m */; };
 		3071FB1C19F8083F00A8C0DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB1B19F8083F00A8C0DB /* AppDelegate.m */; };
-		3071FB1F19F8083F00A8C0DB /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB1E19F8083F00A8C0DB /* FirstViewController.m */; };
-		3071FB2219F8083F00A8C0DB /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB2119F8083F00A8C0DB /* SecondViewController.m */; };
 		3071FB2519F8083F00A8C0DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3071FB2319F8083F00A8C0DB /* Main.storyboard */; };
 		3071FB2719F8083F00A8C0DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3071FB2619F8083F00A8C0DB /* Images.xcassets */; };
 		3071FB2A19F8083F00A8C0DB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3071FB2819F8083F00A8C0DB /* LaunchScreen.xib */; };
 		3071FB3619F8084000A8C0DB /* NizerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB3519F8084000A8C0DB /* NizerTests.m */; };
+		3071FB4019F81DD600A8C0DB /* deal-active-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3071FB3F19F81DD600A8C0DB /* deal-active-icon.png */; };
+		3071FB4219F81DDB00A8C0DB /* Active_Icons_Exercise.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3071FB4119F81DDB00A8C0DB /* Active_Icons_Exercise.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,16 +33,14 @@
 		3071FB1819F8083F00A8C0DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3071FB1A19F8083F00A8C0DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3071FB1B19F8083F00A8C0DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3071FB1D19F8083F00A8C0DB /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		3071FB1E19F8083F00A8C0DB /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		3071FB2019F8083F00A8C0DB /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		3071FB2119F8083F00A8C0DB /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		3071FB2419F8083F00A8C0DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3071FB2619F8083F00A8C0DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3071FB2919F8083F00A8C0DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3071FB2F19F8084000A8C0DB /* NizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3071FB3419F8084000A8C0DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3071FB3519F8084000A8C0DB /* NizerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NizerTests.m; sourceTree = "<group>"; };
+		3071FB3F19F81DD600A8C0DB /* deal-active-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deal-active-icon.png"; sourceTree = "<group>"; };
+		3071FB4119F81DDB00A8C0DB /* Active_Icons_Exercise.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Active_Icons_Exercise.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +82,10 @@
 		3071FB1519F8083F00A8C0DB /* Nizer */ = {
 			isa = PBXGroup;
 			children = (
+				3071FB4119F81DDB00A8C0DB /* Active_Icons_Exercise.gif */,
+				3071FB3F19F81DD600A8C0DB /* deal-active-icon.png */,
 				3071FB1A19F8083F00A8C0DB /* AppDelegate.h */,
 				3071FB1B19F8083F00A8C0DB /* AppDelegate.m */,
-				3071FB1D19F8083F00A8C0DB /* FirstViewController.h */,
-				3071FB1E19F8083F00A8C0DB /* FirstViewController.m */,
-				3071FB2019F8083F00A8C0DB /* SecondViewController.h */,
-				3071FB2119F8083F00A8C0DB /* SecondViewController.m */,
 				3071FB2319F8083F00A8C0DB /* Main.storyboard */,
 				3071FB2619F8083F00A8C0DB /* Images.xcassets */,
 				3071FB2819F8083F00A8C0DB /* LaunchScreen.xib */,
@@ -204,9 +200,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3071FB4019F81DD600A8C0DB /* deal-active-icon.png in Resources */,
 				3071FB2519F8083F00A8C0DB /* Main.storyboard in Resources */,
 				3071FB2A19F8083F00A8C0DB /* LaunchScreen.xib in Resources */,
 				3071FB2719F8083F00A8C0DB /* Images.xcassets in Resources */,
+				3071FB4219F81DDB00A8C0DB /* Active_Icons_Exercise.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,9 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3071FB2219F8083F00A8C0DB /* SecondViewController.m in Sources */,
 				3071FB1C19F8083F00A8C0DB /* AppDelegate.m in Sources */,
-				3071FB1F19F8083F00A8C0DB /* FirstViewController.m in Sources */,
 				3071FB1919F8083F00A8C0DB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
