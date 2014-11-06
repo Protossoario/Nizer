@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--New Activity View Controller-->
         <scene sceneID="kdm-et-Cmf">
             <objects>
-                <viewController id="RNq-Vp-Nwg" sceneMemberID="viewController">
+                <viewController id="RNq-Vp-Nwg" customClass="NewActivityViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Ik-09-mLr"/>
                         <viewControllerLayoutGuide type="bottom" id="ob2-fB-3Wy"/>
@@ -99,15 +99,23 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dJa-Ab-hXR"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="categoryPicker" destination="A6o-fk-DXA" id="nF1-RF-SBe"/>
+                        <outlet property="dayOfTheWeek" destination="uaX-d2-FPt" id="8pa-LN-Lu4"/>
+                        <outlet property="hour" destination="8M2-1C-Uxk" id="1uJ-YQ-ldI"/>
+                        <outlet property="name" destination="Hj3-3I-f4c" id="Wcj-wF-BBA"/>
+                        <outlet property="priority" destination="1NR-qg-TNm" id="qlX-k2-baZ"/>
+                        <outlet property="time" destination="IYc-Xe-fki" id="BkK-M9-JIO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ub-FB-yTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1306.1333333333332" y="-841.5866666666667"/>
         </scene>
-        <!--View Controller-->
+        <!--Timer View Controller-->
         <scene sceneID="iy7-cH-Apw">
             <objects>
-                <viewController id="IrC-Ay-6Tk" sceneMemberID="viewController">
+                <viewController id="IrC-Ay-6Tk" customClass="TimerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="roz-n2-Jxm"/>
                         <viewControllerLayoutGuide type="bottom" id="RAQ-X2-sf5"/>
@@ -133,6 +141,9 @@
                                 <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="start:" destination="IrC-Ay-6Tk" eventType="touchUpInside" id="qX7-Zb-cuM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52o-9f-syk">
                                 <rect key="frame" x="227" y="284" width="43" height="30"/>
@@ -165,15 +176,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="UqP-ft-28Y"/>
+                    <connections>
+                        <outlet property="addNote" destination="i61-n3-n84" id="k75-RU-W6B"/>
+                        <outlet property="pause" destination="52o-9f-syk" id="ptw-sn-Uzx"/>
+                        <outlet property="timeLabel" destination="eap-Ax-zNh" id="wWe-GG-stH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z7B-Ws-gLu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1306.1333333333332" y="-167.56"/>
         </scene>
-        <!--Table View Controller - Activity Log-->
+        <!--Log Table View Controller - Activity Log-->
         <scene sceneID="Bee-Nh-gJU">
             <objects>
-                <tableViewController id="WjJ-xZ-zEC" sceneMemberID="viewController">
+                <tableViewController id="WjJ-xZ-zEC" customClass="LogTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OrM-f7-2UL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,8 +204,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Actividad programada 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfw-bx-lMt">
-                                                    <rect key="frame" x="20" y="11" width="184" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log de tiempo - Act 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfw-bx-lMt">
+                                                    <rect key="frame" x="20" y="11" width="168" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -207,8 +223,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Actividad programada 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUK-yU-SD1">
-                                                    <rect key="frame" x="20" y="11" width="184" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log de tiempo - Act 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUK-yU-SD1">
+                                                    <rect key="frame" x="20" y="11" width="168" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -223,8 +239,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Actividad programada 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSd-Ek-GLt">
-                                                    <rect key="frame" x="20" y="11" width="184" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log de tiempo - Act 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSd-Ek-GLt">
+                                                    <rect key="frame" x="20" y="11" width="168" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -298,10 +314,10 @@
             </objects>
             <point key="canvasLocation" x="1306.1333333333332" y="544.33333333333337"/>
         </scene>
-        <!--View Controller - Config-->
+        <!--Config View Controller - Config-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="ConfigViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -376,10 +392,10 @@
             </objects>
             <point key="canvasLocation" x="400" y="-309.56"/>
         </scene>
-        <!--Table View Controller - To-Do List-->
+        <!--Activity Table View Controller - To-Do List-->
         <scene sceneID="2xr-G5-loL">
             <objects>
-                <tableViewController id="fpW-xB-rYk" sceneMemberID="viewController">
+                <tableViewController id="fpW-xB-rYk" customClass="ActivityTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8lu-vG-x9q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -497,7 +513,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="A4R-BO-rZ6"/>
         <segue reference="V2e-Ud-TPF"/>
+        <segue reference="3iM-CI-Bn6"/>
     </inferredMetricsTieBreakers>
 </document>
