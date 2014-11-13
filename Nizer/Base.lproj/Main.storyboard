@@ -472,6 +472,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="To-Do List" id="5cP-vg-HAv">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Lqb-7J-SfA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="R65-DL-Vw7">
+                                <rect key="frame" x="16" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="share:" destination="fpW-xB-rYk" eventType="touchUpInside" id="hln-zy-dAA"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="TaA-2O-EKB">
                             <connections>
                                 <segue destination="RNq-Vp-Nwg" kind="push" id="A4R-BO-rZ6"/>
@@ -513,7 +526,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="A4R-BO-rZ6"/>
         <segue reference="V2e-Ud-TPF"/>
-        <segue reference="3iM-CI-Bn6"/>
     </inferredMetricsTieBreakers>
 </document>
