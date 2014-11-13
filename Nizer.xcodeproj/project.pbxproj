@@ -100,24 +100,18 @@
 		3071FB1519F8083F00A8C0DB /* Nizer */ = {
 			isa = PBXGroup;
 			children = (
+				3071FB2319F8083F00A8C0DB /* Main.storyboard */,
 				3071FB4119F81DDB00A8C0DB /* Active_Icons_Exercise.gif */,
 				3071FB3F19F81DD600A8C0DB /* deal-active-icon.png */,
-				3071FB1A19F8083F00A8C0DB /* AppDelegate.h */,
-				3071FB1B19F8083F00A8C0DB /* AppDelegate.m */,
-				3071FB2319F8083F00A8C0DB /* Main.storyboard */,
-				3071FB2619F8083F00A8C0DB /* Images.xcassets */,
 				3071FB2819F8083F00A8C0DB /* LaunchScreen.xib */,
+				3071FB2619F8083F00A8C0DB /* Images.xcassets */,
+				8737A5BA1A152CF20090969D /* AppDelegate */,
+				8737A5BF1A152D400090969D /* ActivityTableViewController */,
+				8737A5BE1A152D320090969D /* NewActivityViewController */,
+				8737A5BD1A152D270090969D /* TimerViewController */,
+				8737A5BC1A152D180090969D /* LogTableViewController */,
+				8737A5BB1A152D080090969D /* ConfigViewController */,
 				3071FB1619F8083F00A8C0DB /* Supporting Files */,
-				30A01C941A0C356800BD8FA6 /* ActivityTableViewController.h */,
-				30A01C951A0C356800BD8FA6 /* ActivityTableViewController.m */,
-				30A01C971A0C35F600BD8FA6 /* NewActivityViewController.h */,
-				30A01C981A0C35F600BD8FA6 /* NewActivityViewController.m */,
-				30A01C9A1A0C36B500BD8FA6 /* TimerViewController.h */,
-				30A01C9B1A0C36B500BD8FA6 /* TimerViewController.m */,
-				30A01C9D1A0C393600BD8FA6 /* LogTableViewController.h */,
-				30A01C9E1A0C393600BD8FA6 /* LogTableViewController.m */,
-				30A01CA01A0C395B00BD8FA6 /* ConfigViewController.h */,
-				30A01CA11A0C395B00BD8FA6 /* ConfigViewController.m */,
 			);
 			path = Nizer;
 			sourceTree = "<group>";
@@ -146,6 +140,60 @@
 				3071FB3419F8084000A8C0DB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8737A5BA1A152CF20090969D /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				3071FB1A19F8083F00A8C0DB /* AppDelegate.h */,
+				3071FB1B19F8083F00A8C0DB /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		8737A5BB1A152D080090969D /* ConfigViewController */ = {
+			isa = PBXGroup;
+			children = (
+				30A01CA01A0C395B00BD8FA6 /* ConfigViewController.h */,
+				30A01CA11A0C395B00BD8FA6 /* ConfigViewController.m */,
+			);
+			name = ConfigViewController;
+			sourceTree = "<group>";
+		};
+		8737A5BC1A152D180090969D /* LogTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				30A01C9D1A0C393600BD8FA6 /* LogTableViewController.h */,
+				30A01C9E1A0C393600BD8FA6 /* LogTableViewController.m */,
+			);
+			name = LogTableViewController;
+			sourceTree = "<group>";
+		};
+		8737A5BD1A152D270090969D /* TimerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				30A01C9A1A0C36B500BD8FA6 /* TimerViewController.h */,
+				30A01C9B1A0C36B500BD8FA6 /* TimerViewController.m */,
+			);
+			name = TimerViewController;
+			sourceTree = "<group>";
+		};
+		8737A5BE1A152D320090969D /* NewActivityViewController */ = {
+			isa = PBXGroup;
+			children = (
+				30A01C971A0C35F600BD8FA6 /* NewActivityViewController.h */,
+				30A01C981A0C35F600BD8FA6 /* NewActivityViewController.m */,
+			);
+			name = NewActivityViewController;
+			sourceTree = "<group>";
+		};
+		8737A5BF1A152D400090969D /* ActivityTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				30A01C941A0C356800BD8FA6 /* ActivityTableViewController.h */,
+				30A01C951A0C356800BD8FA6 /* ActivityTableViewController.m */,
+			);
+			name = ActivityTableViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
