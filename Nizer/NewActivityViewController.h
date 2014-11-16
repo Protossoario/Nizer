@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Activity.h"
+#import "ApiBD.h"
 
-@interface NewActivityViewController : UIViewController
+@interface NewActivityViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *name;
-@property (weak, nonatomic) IBOutlet UITextField *time;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *priority;
-@property (weak, nonatomic) IBOutlet UITextField *hour;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *dayOfTheWeek;
+@property (weak, nonatomic) IBOutlet UITextField *nameText;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *repeatControl;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *categoryPicker;
+- (IBAction)saveActivity:(id)sender;
 
 @end

@@ -8,7 +8,10 @@
 
 #import "NewActivityViewController.h"
 
-@interface NewActivityViewController ()
+@interface NewActivityViewController () {
+    NSArray *categories;
+    ApiBD *bd;
+}
 
 @end
 
@@ -26,13 +29,50 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    categories = [[NSArray alloc] initWithObjects:@"Work", @"School", @"Athletic", @"Fun", @"Read", nil];
+    bd = [ApiBD getSharedInstance];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)validateFields {
+    if ([[self.nameText text] isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Must input a name for the activity" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        return NO;
+    }
+    return YES;
+}
+
+- (IBAction)saveActivity:(id)sender {
+    if ([self validateFields]) {
+        Activity *newActivity = [[Activity alloc] init];
+        newActivity.name = [self.nameText text];
+        newActivity.repeat = [self.repeatControl selectedSegmentIndex];
+        newActivity.date = [self.datePicker date];
+        newActivity.category = categories[[self.categoryPicker selectedRowInComponent:0]];
+        [bd insertActivity:newActivity];
+    }
+}
+
+#pragma mark – UIPickerViewDataSource
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return [categories count];
+}
+
+#pragma mark – UIPickerViewDelegate
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return categories[row];
 }
 
 /*
