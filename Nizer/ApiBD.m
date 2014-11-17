@@ -27,6 +27,26 @@
     if (![context save:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
+    else {
+        NSLog(@"Actividad guardada con exito");
+    }
+}
+
+- (NSArray*)getActivities {
+    NSManagedObjectContext *context = self.managedObjectContext;
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSError *error;
+    NSArray *objects = [context executeFetchRequest:request error:&error];
+    
+    if ([objects count] == 0) {
+        NSLog(@"No existen actividades que cargar");
+    }
+    return objects;
 }
 
 #pragma mark - Core Data stack

@@ -18,6 +18,7 @@
 
 - (NSURL *)applicationDocumentsDirectory;
 - (void)insertActivity:(Activity*)activity;
+- (NSArray*)getActivities;
 + (ApiBD*)getSharedInstance;
 
 @end

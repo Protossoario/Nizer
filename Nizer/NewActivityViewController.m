@@ -41,22 +41,22 @@
 
 - (BOOL)validateFields {
     if ([[self.nameText text] isEqualToString:@""]) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Must input a name for the activity" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
         return NO;
     }
     return YES;
 }
 
-- (IBAction)saveActivity:(id)sender {
-    if ([self validateFields]) {
-        Activity *newActivity = [[Activity alloc] init];
-        newActivity.name = [self.nameText text];
-        newActivity.repeat = [self.repeatControl selectedSegmentIndex];
-        newActivity.date = [self.datePicker date];
-        newActivity.category = categories[[self.categoryPicker selectedRowInComponent:0]];
-        [bd insertActivity:newActivity];
-    }
+- (void)saveActivity {
+    Activity *newActivity = [[Activity alloc] init];
+    newActivity.name = [self.nameText text];
+    newActivity.repeat = [self.repeatControl selectedSegmentIndex];
+    newActivity.date = [self.datePicker date];
+    newActivity.category = categories[[self.categoryPicker selectedRowInComponent:0]];
+    [bd insertActivity:newActivity];
+}
+
+- (IBAction)tapGestureAction:(id)sender {
+    [self.nameText resignFirstResponder];
 }
 
 #pragma mark – UIPickerViewDataSource
@@ -75,15 +75,20 @@
     return categories[row];
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"unwindToActivityTableViewController"]) {
+        if ([self validateFields]) {
+            [self saveActivity];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Must input a name for the activity" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+        }
+    }
 }
-*/
 
 @end

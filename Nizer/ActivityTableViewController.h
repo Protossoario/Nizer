@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ApiBD.h"
+#import "Activity.h"
 
-@interface ActivityTableViewController : UITableViewController
+@interface ActivityTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+
 @property (nonatomic, strong) UIActivityViewController *activityViewController;
 - (IBAction)share:(id)sender;
+- (IBAction)unwindToActivityTableViewController:(UIStoryboardSegue *)segue;
+
 
 @end

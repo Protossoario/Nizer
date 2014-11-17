@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *repeatControl;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *categoryPicker;
-- (IBAction)saveActivity:(id)sender;
+- (void)saveActivity;
+- (IBAction)tapGestureAction:(id)sender;
 
 @end

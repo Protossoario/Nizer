@@ -8,7 +8,10 @@
 
 #import "ActivityTableViewController.h"
 
-@interface ActivityTableViewController ()
+@interface ActivityTableViewController () {
+    NSArray *activities;
+    ApiBD *bd;
+}
 
 @end
 
@@ -26,6 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    bd = [ApiBD getSharedInstance];
+    activities = [bd getActivities];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -44,28 +49,24 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [activities count];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Inactive" forIndexPath:indexPath];
+    cell.textLabel.text = [(Activity *)activities[[indexPath row]] name];
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -116,8 +117,10 @@
 }
 */
 
+- (IBAction)unwindToActivityTableViewController:(UIStoryboardSegue *)segue {
+}
+
 - (IBAction)share:(id)sender {
-    
         NSString *textToPost = @"Estoy usando Nizer.";
         //UIImage *imageToPost = self.imagenDuck.image; //lo que se comparte
         
