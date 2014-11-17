@@ -118,6 +118,8 @@
 */
 
 - (IBAction)unwindToActivityTableViewController:(UIStoryboardSegue *)segue {
+    activities = [bd getActivities];
+    [self.tableView reloadData];
 }
 
 - (IBAction)share:(id)sender {
