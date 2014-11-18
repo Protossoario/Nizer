@@ -46,4 +46,44 @@
 }
 */
 
+- (IBAction)fbButton:(id)sender {
+    
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        
+        SLComposeViewController *facebookController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        //set initial message
+        [facebookController setInitialText:@"¡Prueba Nizer y organízate junto conmigo!"];
+        
+        //present the controller to the user
+        [self presentViewController:facebookController animated:YES completion:nil];
+        
+        
+    }else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Facebook Error" message:@"You may not have set Facebook correctly on your device." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
+- (IBAction)twButton:(id)sender {
+    
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        
+        SLComposeViewController *twitterController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        //set initial message
+        [twitterController setInitialText:@"¡Prueba la nueva aplicación de Nizer y organiza tus actividades!"];
+        
+        
+        //present the controller to the user
+        [self presentViewController:twitterController animated:YES completion:nil];
+        
+    }else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Twitter Error" message:@"You may not have set Twitter correctl on your device." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }
+    
+}
 @end

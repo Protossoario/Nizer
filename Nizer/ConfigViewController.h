@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Social/Social.h>
 
 @interface ConfigViewController : UIViewController
+
+- (IBAction)fbButton:(id)sender;
+
+- (IBAction)twButton:(id)sender;
 
 @end
