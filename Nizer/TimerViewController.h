@@ -7,13 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ApiBD.h"
+#import "Activity.h"
+#import "TimeLog.h"
 
 @interface TimerViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-- (IBAction)start:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *pause;
-@property (weak, nonatomic) IBOutlet UIButton *finish;
-@property (weak, nonatomic) IBOutlet UIButton *addNote;
+@property (strong, nonatomic) IBOutlet UILabel *stopwatchLabel;
+@property (strong, nonatomic) IBOutlet UILabel *startDateLabel;
+@property (strong, nonatomic) Activity *activity;
+@property (strong, nonatomic) ApiBD *bd;
+@property (strong, nonatomic) NSTimer *stopwatchTimer;  //store the timer that fires after a certain time
+@property (strong, nonatomic) NSDate *startDate;  //the date of the click of the start button
+
+- (IBAction)startStopwatch:(id)sender;
+- (IBAction)pauseStopwatch:(id)sender;
+- (void)endStopwatch;
 
 @end

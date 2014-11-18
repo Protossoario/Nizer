@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ApiBD.h"
+#import "TimeLog.h"
 
-@interface LogTableViewController : UITableViewController
+@interface LogTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) ApiBD *bd;
 
 @end

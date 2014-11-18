@@ -28,7 +28,24 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
     else {
-        NSLog(@"Actividad guardada con exito");
+        NSLog(@"Nueva actividad guardada con exito");
+    }
+}
+
+- (void)insertTimeLog:(TimeLog *)timelog {
+    NSManagedObjectContext *context = self.managedObjectContext;
+    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"TimeLog" inManagedObjectContext:context];
+    
+    [newManagedObject setValue:timelog.activity forKey:@"activity"];
+    [newManagedObject setValue:timelog.startDate forKey:@"startDate"];
+    [newManagedObject setValue:[NSNumber numberWithDouble:timelog.duration] forKey:@"duration"];
+    
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+    else {
+        NSLog(@"Registro de TimeLog guardado con exito");
     }
 }
 
@@ -36,6 +53,23 @@
     NSManagedObjectContext *context = self.managedObjectContext;
     
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSError *error;
+    NSArray *objects = [context executeFetchRequest:request error:&error];
+    
+    if ([objects count] == 0) {
+        NSLog(@"No existen actividades que cargar");
+    }
+    return objects;
+}
+
+- (NSArray*)getTimeLogs {
+    NSManagedObjectContext *context = self.managedObjectContext;
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"TimeLog" inManagedObjectContext:context];
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];

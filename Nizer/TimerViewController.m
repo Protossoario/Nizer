@@ -8,7 +8,11 @@
 
 #import "TimerViewController.h"
 
-@interface TimerViewController ()
+@interface TimerViewController () {
+    BOOL paused;
+    BOOL started;
+    NSTimeInterval secondsAlreadyRun;
+}
 
 @end
 
@@ -26,7 +30,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.bd = [ApiBD getSharedInstance];
+    self.stopwatchLabel.text = @"00:00:00";
+    self.navigationItem.title = self.activity.name;
+    secondsAlreadyRun = 0;
+    paused = NO;
+    started = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,17 +44,71 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+- (void)updateTimer
+{
+    NSDate *currentDate = [NSDate date];
+    NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:_startDate];
+    // Add the saved interval
+    timeInterval += secondsAlreadyRun;
+    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm:ss"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
+    NSString *timeString=[dateFormatter stringFromDate:timerDate];
+    _stopwatchLabel.text = timeString;
+}
+
+- (IBAction)startStopwatch:(id)sender {
+    if (!started) {
+        _startDate = [[NSDate alloc] init];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"dd/MM/yy HH:mm:ss"];
+        self.startDateLabel.text = [NSString stringWithFormat:@"Start date: %@", [dateFormatter stringFromDate:_startDate]];
+        started = YES;
+    }
+    else if (paused) {
+        paused = NO;
+    }
+    else {
+        return;
+    }
+    _stopwatchTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                       target:self
+                                                     selector:@selector(updateTimer)
+                                                     userInfo:nil
+                                                      repeats:YES];
+    [_stopwatchTimer fire];
+}
+
+- (IBAction)pauseStopwatch:(id)sender {
+    if (!paused && started) {
+        //secondsAlreadyRun += [[NSDate date] timeIntervalSinceDate:_startDate];
+        [_stopwatchTimer invalidate];
+        _stopwatchTimer = nil;
+        paused = YES;
+    }
+}
+
+- (void)endStopwatch {
+    if (started) {
+        TimeLog *timelog = [[TimeLog alloc] init];
+        timelog.activity = self.activity.name;
+        timelog.startDate = self.startDate;
+        timelog.duration = secondsAlreadyRun;
+        [self.bd insertTimeLog:timelog];
+        //secondsAlreadyRun = 0;
+        //self.stopwatchLabel.text = @"00:00:00";
+    }
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"unwindToActivityTableViewController"]) {
+        [self endStopwatch];
+    }
 }
-*/
 
-- (IBAction)start:(id)sender {
-}
 @end

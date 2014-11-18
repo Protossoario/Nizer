@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "Activity.h"
+#import "TimeLog.h"
 
 @interface ApiBD : NSObject
 
@@ -18,7 +19,9 @@
 
 - (NSURL *)applicationDocumentsDirectory;
 - (void)insertActivity:(Activity*)activity;
+- (void)insertTimeLog:(TimeLog*)timelog;
 - (NSArray*)getActivities;
+- (NSArray*)getTimeLogs;
 + (ApiBD*)getSharedInstance;
 
 @end

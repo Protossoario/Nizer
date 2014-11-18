@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ApiBD.h"
 #import "Activity.h"
+#import "TimerViewController.h"
 
 @interface ActivityTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 

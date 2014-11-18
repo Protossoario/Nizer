@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <deployment identifier="iOS"/>
         <development version="5100" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--New Activity-->
+        <!--New Activity View Controller - New Activity-->
         <scene sceneID="kdm-et-Cmf">
             <objects>
                 <viewController id="RNq-Vp-Nwg" customClass="NewActivityViewController" sceneMemberID="viewController">
@@ -129,9 +128,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eap-Ax-zNh">
-                                <rect key="frame" x="47" y="101" width="226" height="96"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eap-Ax-zNh">
+                                <rect key="frame" x="22" y="101" width="276" height="96"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -147,7 +146,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="start:" destination="IrC-Ay-6Tk" eventType="touchUpInside" id="qX7-Zb-cuM"/>
+                                    <action selector="startStopwatch:" destination="IrC-Ay-6Tk" eventType="touchUpInside" id="JVv-sH-mFC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="52o-9f-syk">
@@ -155,19 +154,19 @@
                                 <state key="normal" title="Pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pauseStopwatch:" destination="IrC-Ay-6Tk" eventType="touchUpInside" id="kpg-hf-afC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eZC-v3-nII">
                                 <rect key="frame" x="140" y="395" width="41" height="30"/>
                                 <state key="normal" title="Finish">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Hd2-Im-AIv" kind="unwind" unwindAction="unwindToActivityTableViewController:" id="NZk-Uh-kXV"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start: dd/MM/yyyy hh:mm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Swx-Lk-Tfu">
-                                <rect key="frame" x="60" y="205" width="200" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="i61-n3-n84">
                                 <rect key="frame" x="16" y="481" width="63" height="30"/>
                                 <state key="normal" title="Add note">
@@ -177,97 +176,60 @@
                                     <segue destination="lGj-RK-TIH" kind="push" id="2v1-ol-1f4"/>
                                 </connections>
                             </button>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NKd-dR-cnX">
+                                <rect key="frame" x="22" y="205" width="278" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="UqP-ft-28Y"/>
                     <connections>
-                        <outlet property="addNote" destination="i61-n3-n84" id="k75-RU-W6B"/>
-                        <outlet property="pause" destination="52o-9f-syk" id="ptw-sn-Uzx"/>
-                        <outlet property="timeLabel" destination="eap-Ax-zNh" id="wWe-GG-stH"/>
+                        <outlet property="startDateLabel" destination="NKd-dR-cnX" id="40y-8s-w0t"/>
+                        <outlet property="stopwatchLabel" destination="eap-Ax-zNh" id="cm8-cr-xVf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z7B-Ws-gLu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Hd2-Im-AIv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1306.1333333333332" y="-167.56"/>
         </scene>
-        <!--Activity Log-->
+        <!--Log Table View Controller - Activity Log-->
         <scene sceneID="Bee-Nh-gJU">
             <objects>
                 <tableViewController id="WjJ-xZ-zEC" customClass="LogTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OrM-f7-2UL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OrM-f7-2UL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="puK-vR-Umj">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="S09-hr-aQ7">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S09-hr-aQ7" id="cth-z2-B8u">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log de tiempo - Act 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rfw-bx-lMt">
-                                                    <rect key="frame" x="20" y="11" width="168" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="RNq-Vp-Nwg" kind="push" id="s0w-h9-fuZ"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zAb-mY-GkQ">
-                                        <rect key="frame" x="0.0" y="108" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zAb-mY-GkQ" id="rrs-UM-nG6">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log de tiempo - Act 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GUK-yU-SD1">
-                                                    <rect key="frame" x="20" y="11" width="168" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dNj-yu-gfs">
-                                        <rect key="frame" x="0.0" y="152" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dNj-yu-gfs" id="4tX-DW-pzG">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log de tiempo - Act 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MSd-Ek-GLt">
-                                                    <rect key="frame" x="20" y="11" width="168" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TimeLog" id="S09-hr-aQ7">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S09-hr-aQ7" id="cth-z2-B8u">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rfw-bx-lMt">
+                                            <rect key="frame" x="20" y="11" width="267" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="WjJ-xZ-zEC" id="24i-Tn-dz6"/>
                             <outlet property="delegate" destination="WjJ-xZ-zEC" id="n8n-z0-NeQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Activity Log" id="sIS-RF-w7Q">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tiR-ze-XlO">
-                            <connections>
-                                <segue destination="RNq-Vp-Nwg" kind="push" id="3iM-CI-Bn6"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Activity Log" id="sIS-RF-w7Q"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i2Q-g4-wVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -315,7 +277,7 @@
             </objects>
             <point key="canvasLocation" x="1306.1333333333332" y="544.33333333333337"/>
         </scene>
-        <!--Config-->
+        <!--Config View Controller - Config-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="ConfigViewController" sceneMemberID="viewController">
@@ -397,7 +359,7 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--To-Do-->
+        <!--Navigation Controller - To-Do-->
         <scene sceneID="u0J-ag-iKl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fyt-kL-eA7" sceneMemberID="viewController">
@@ -416,7 +378,7 @@
             </objects>
             <point key="canvasLocation" x="400" y="-309.56"/>
         </scene>
-        <!--To-Do List-->
+        <!--Activity Table View Controller - To-Do List-->
         <scene sceneID="2xr-G5-loL">
             <objects>
                 <tableViewController id="fpW-xB-rYk" customClass="ActivityTableViewController" sceneMemberID="viewController">
@@ -444,7 +406,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="IrC-Ay-6Tk" kind="push" id="V2e-Ud-TPF"/>
+                                    <segue destination="IrC-Ay-6Tk" kind="push" identifier="openActivity" id="V2e-Ud-TPF"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Inactive" id="Zna-UR-Y3X">
@@ -463,7 +425,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="IrC-Ay-6Tk" kind="push" id="SiH-6m-knN"/>
+                                    <segue destination="IrC-Ay-6Tk" kind="push" identifier="openActivity" id="SiH-6m-knN"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Finished" id="l6S-8M-n6R">
@@ -485,7 +447,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="IrC-Ay-6Tk" kind="push" id="IV1-H8-upk"/>
+                                    <segue destination="IrC-Ay-6Tk" kind="push" identifier="openActivity" id="IV1-H8-upk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -520,7 +482,7 @@
             </objects>
             <point key="canvasLocation" x="841.60000000000002" y="-317.13333333333333"/>
         </scene>
-        <!--Activities-->
+        <!--Navigation Controller - Activities-->
         <scene sceneID="d0D-tv-qwb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CJt-Sn-fGR" sceneMemberID="viewController">
@@ -552,7 +514,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="SiH-6m-knN"/>
-        <segue reference="A4R-BO-rZ6"/>
+        <segue reference="IV1-H8-upk"/>
     </inferredMetricsTieBreakers>
 </document>
