@@ -19,9 +19,10 @@
 @property (strong, nonatomic) ApiBD *bd;
 @property (strong, nonatomic) NSTimer *stopwatchTimer;  //store the timer that fires after a certain time
 @property (strong, nonatomic) NSDate *startDate;  //the date of the click of the start button
+@property (strong, nonatomic) NSDate *firstStartDate;
 
 - (IBAction)startStopwatch:(id)sender;
 - (IBAction)pauseStopwatch:(id)sender;
-- (void)endStopwatch;
+- (void)saveTimeLog;
 
 @end

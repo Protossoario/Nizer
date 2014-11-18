@@ -59,18 +59,13 @@
 }
 
 - (IBAction)startStopwatch:(id)sender {
+    _startDate = [[NSDate alloc] init];
     if (!started) {
-        _startDate = [[NSDate alloc] init];
+        self.firstStartDate = self.startDate;
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"dd/MM/yy HH:mm:ss"];
         self.startDateLabel.text = [NSString stringWithFormat:@"Start date: %@", [dateFormatter stringFromDate:_startDate]];
         started = YES;
-    }
-    else if (paused) {
-        paused = NO;
-    }
-    else {
-        return;
     }
     _stopwatchTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                        target:self
@@ -81,19 +76,17 @@
 }
 
 - (IBAction)pauseStopwatch:(id)sender {
-    if (!paused && started) {
-        //secondsAlreadyRun += [[NSDate date] timeIntervalSinceDate:_startDate];
-        [_stopwatchTimer invalidate];
-        _stopwatchTimer = nil;
-        paused = YES;
-    }
+    secondsAlreadyRun += [[NSDate date] timeIntervalSinceDate:_startDate];
+    [_stopwatchTimer invalidate];
+    _stopwatchTimer = nil;
+    paused = YES;
 }
 
-- (void)endStopwatch {
+- (void)saveTimeLog {
     if (started) {
         TimeLog *timelog = [[TimeLog alloc] init];
         timelog.activity = self.activity.name;
-        timelog.startDate = self.startDate;
+        timelog.startDate = self.firstStartDate;
         timelog.duration = secondsAlreadyRun;
         [self.bd insertTimeLog:timelog];
         //secondsAlreadyRun = 0;
@@ -107,7 +100,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"unwindToActivityTableViewController"]) {
-        [self endStopwatch];
+        [self saveTimeLog];
     }
 }
 
