@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <development version="5000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--New Activity View Controller - New Activity-->
@@ -128,7 +128,6 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="600"/>
                     <connections>
                         <outlet property="categoryPicker" destination="ZLE-4u-hiS" id="Iob-ci-dif"/>
                         <outlet property="datePicker" destination="QEN-ap-eXx" id="Xhs-cb-92Q"/>
@@ -346,25 +345,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s3r-vd-6Vd">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s3r-vd-6Vd">
                                 <rect key="frame" x="213" y="169" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytI-Kb-8ku">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Alarms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytI-Kb-8ku">
                                 <rect key="frame" x="113" y="249" width="53" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HG9-uk-KV1">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HG9-uk-KV1">
                                 <rect key="frame" x="213" y="244" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cw0-Fg-maX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Notifications" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cw0-Fg-maX">
                                 <rect key="frame" x="70" y="174" width="96" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTQ-Iu-b2Z">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTQ-Iu-b2Z">
                                 <rect key="frame" x="98" y="359" width="41" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -375,12 +374,9 @@
                                     <action selector="fbButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="hZz-Vu-1fE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvl-Ks-EKC">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvl-Ks-EKC">
                                 <rect key="frame" x="165" y="354" width="47" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="47" id="SPA-D6-irN"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Button" image="728567main_twitter-icon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -405,21 +401,13 @@
                             <constraint firstItem="s3r-vd-6Vd" firstAttribute="leading" secondItem="HG9-uk-KV1" secondAttribute="leading" id="1dO-SZ-KXS"/>
                             <constraint firstAttribute="trailing" secondItem="s3r-vd-6Vd" secondAttribute="trailing" constant="58" id="46K-Wd-hgb"/>
                             <constraint firstItem="Cw0-Fg-maX" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="70" id="5OR-hd-CmY"/>
-                            <constraint firstItem="LTQ-Iu-b2Z" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="98" id="5ob-vo-DEC"/>
                             <constraint firstItem="OC0-l5-evt" firstAttribute="top" secondItem="7jA-4m-nvf" secondAttribute="bottom" constant="73" id="6Bz-3g-dLP"/>
                             <constraint firstAttribute="trailing" secondItem="7jA-4m-nvf" secondAttribute="trailing" constant="88" id="Boa-0A-CMQ"/>
-                            <constraint firstItem="LTQ-Iu-b2Z" firstAttribute="centerX" secondItem="Cw0-Fg-maX" secondAttribute="centerX" id="HoZ-2Z-TfH"/>
-                            <constraint firstItem="7jA-4m-nvf" firstAttribute="top" secondItem="fvl-Ks-EKC" secondAttribute="bottom" constant="20" id="KBn-P6-wtQ"/>
                             <constraint firstItem="HG9-uk-KV1" firstAttribute="centerY" secondItem="ytI-Kb-8ku" secondAttribute="centerY" id="Pri-3j-jN1"/>
-                            <constraint firstItem="fvl-Ks-EKC" firstAttribute="centerY" secondItem="LTQ-Iu-b2Z" secondAttribute="centerY" id="RYR-oY-vE5"/>
-                            <constraint firstItem="fvl-Ks-EKC" firstAttribute="leading" secondItem="LTQ-Iu-b2Z" secondAttribute="trailing" constant="26" id="Xpt-7J-QO6"/>
-                            <constraint firstItem="LTQ-Iu-b2Z" firstAttribute="top" secondItem="ytI-Kb-8ku" secondAttribute="bottom" constant="89" id="cMj-YF-6PB"/>
                             <constraint firstItem="HG9-uk-KV1" firstAttribute="top" secondItem="s3r-vd-6Vd" secondAttribute="bottom" constant="44" id="fub-Jy-skh"/>
                             <constraint firstItem="7jA-4m-nvf" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="79" id="hX7-Qb-jRj"/>
                             <constraint firstItem="Cw0-Fg-maX" firstAttribute="trailing" secondItem="ytI-Kb-8ku" secondAttribute="trailing" id="nHd-Lr-BEf"/>
-                            <constraint firstItem="fvl-Ks-EKC" firstAttribute="top" secondItem="KBs-rB-krB" secondAttribute="bottom" constant="334" id="rNu-zw-weS"/>
                             <constraint firstItem="s3r-vd-6Vd" firstAttribute="leading" secondItem="Cw0-Fg-maX" secondAttribute="trailing" constant="47" id="rgg-lA-Gcf"/>
-                            <constraint firstItem="7jA-4m-nvf" firstAttribute="top" secondItem="LTQ-Iu-b2Z" secondAttribute="bottom" constant="25" id="u3B-XT-T7O"/>
                             <constraint firstItem="s3r-vd-6Vd" firstAttribute="centerY" secondItem="Cw0-Fg-maX" secondAttribute="centerY" id="xxt-Fm-he1"/>
                         </constraints>
                     </view>
