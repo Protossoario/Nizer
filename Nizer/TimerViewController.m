@@ -9,7 +9,6 @@
 #import "TimerViewController.h"
 
 @interface TimerViewController () {
-    BOOL paused;
     BOOL started;
     NSTimeInterval secondsAlreadyRun;
 }
@@ -34,7 +33,6 @@
     self.stopwatchLabel.text = @"00:00:00";
     self.navigationItem.title = self.activity.name;
     secondsAlreadyRun = 0;
-    paused = NO;
     started = NO;
 }
 
@@ -78,11 +76,11 @@
     secondsAlreadyRun += [[NSDate date] timeIntervalSinceDate:_startDate];
     [_stopwatchTimer invalidate];
     _stopwatchTimer = nil;
-    paused = YES;
 }
 
 - (void)saveTimeLog {
     if (started) {
+        secondsAlreadyRun += [[NSDate date] timeIntervalSinceDate:_startDate];
         [self.bd insertTimeLog:[NSNumber numberWithDouble:secondsAlreadyRun] startDate:self.firstStartDate activity:self.activity];
         //secondsAlreadyRun = 0;
         //self.stopwatchLabel.text = @"00:00:00";
