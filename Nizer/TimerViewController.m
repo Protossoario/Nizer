@@ -48,7 +48,6 @@
 {
     NSDate *currentDate = [NSDate date];
     NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:_startDate];
-    // Add the saved interval
     timeInterval += secondsAlreadyRun;
     NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -84,11 +83,7 @@
 
 - (void)saveTimeLog {
     if (started) {
-        TimeLog *timelog = [[TimeLog alloc] init];
-        timelog.activity = self.activity.name;
-        timelog.startDate = self.firstStartDate;
-        timelog.duration = secondsAlreadyRun;
-        [self.bd insertTimeLog:timelog];
+        [self.bd insertTimeLog:[NSNumber numberWithDouble:secondsAlreadyRun] startDate:self.firstStartDate activity:self.activity];
         //secondsAlreadyRun = 0;
         //self.stopwatchLabel.text = @"00:00:00";
     }

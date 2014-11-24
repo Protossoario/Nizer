@@ -47,12 +47,7 @@
 }
 
 - (void)saveActivity {
-    Activity *newActivity = [[Activity alloc] init];
-    newActivity.name = [self.nameText text];
-    newActivity.repeat = [self.repeatControl selectedSegmentIndex];
-    newActivity.date = [self.datePicker date];
-    newActivity.category = categories[[self.categoryPicker selectedRowInComponent:0]];
-    [bd insertActivity:newActivity];
+    [bd insertActivity:self.nameText.text startDate:self.datePicker.date repeatNumber:[NSNumber numberWithInteger:self.repeatControl.selectedSegmentIndex] category:categories[[self.categoryPicker selectedRowInComponent:0]]];
 }
 
 - (IBAction)tapGestureAction:(id)sender {

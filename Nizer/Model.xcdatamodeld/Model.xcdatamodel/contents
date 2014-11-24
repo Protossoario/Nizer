@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="14A389" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Activity" syncable="YES">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Activity" representedClassName="Activity" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="repeat" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="timeLogs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TimeLog" inverseName="activity" inverseEntity="TimeLog" syncable="YES"/>
     </entity>
-    <entity name="TimeLog" syncable="YES">
-        <attribute name="activity" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="TimeLog" representedClassName="TimeLog" syncable="YES">
         <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="activity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="timeLogs" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Activity" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Activity" positionX="-63" positionY="-18" width="128" height="118"/>
         <element name="TimeLog" positionX="-54" positionY="18" width="128" height="88"/>
     </elements>
 </model>

@@ -2,16 +2,19 @@
 //  TimeLog.h
 //  Nizer
 //
-//  Created by Eduardo Alberto Sanchez Alvarado on 11/17/14.
+//  Created by Eduardo Alberto Sanchez Alvarado on 11/23/14.
 //  Copyright (c) 2014 Eduardo Alberto Sanchez Alvarado. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface TimeLog : NSObject
+@class Activity;
 
-@property (strong, nonatomic) NSString *activity;
-@property (strong, nonatomic) NSDate *startDate;
-@property (nonatomic) NSTimeInterval duration;
+@interface TimeLog : NSManagedObject
+
+@property (nonatomic, retain) NSNumber * duration;
+@property (nonatomic, retain) NSDate * startDate;
+@property (nonatomic, retain) Activity *activity;
 
 @end

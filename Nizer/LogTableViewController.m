@@ -71,7 +71,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd/MM/yy HH:mm:ss"];
     NSString *startDate = [dateFormatter stringFromDate:timelog.startDate];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ – %@", timelog.activity, startDate];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ – %@", [(Activity*)timelog.activity name], startDate];
     
     return cell;
 }

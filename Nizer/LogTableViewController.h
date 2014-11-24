@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ApiBD.h"
 #import "TimeLog.h"
+#import "Activity.h"
 
 @interface LogTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 

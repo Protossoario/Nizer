@@ -21,7 +21,24 @@
     [newManagedObject setValue:activity.name forKey:@"name"];
     [newManagedObject setValue:activity.date forKey:@"date"];
     [newManagedObject setValue:activity.category forKey:@"category"];
-    [newManagedObject setValue:[NSNumber numberWithInteger:activity.repeat] forKey:@"repeat"];
+    [newManagedObject setValue:activity.repeat forKey:@"repeat"];
+    
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+    else {
+        NSLog(@"Nueva actividad guardada con exito");
+    }
+}
+
+- (void)insertActivity:(NSString *)name startDate:(NSDate *)date repeatNumber:(NSNumber *)repeat category:(NSString *)category {
+    NSManagedObjectContext *context = self.managedObjectContext;
+    Activity *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"Activity" inManagedObjectContext:context];
+    newActivity.name = name;
+    newActivity.date = date;
+    newActivity.category = category;
+    newActivity.repeat = repeat;
     
     NSError *error = nil;
     if (![context save:&error]) {
@@ -38,7 +55,24 @@
     
     [newManagedObject setValue:timelog.activity forKey:@"activity"];
     [newManagedObject setValue:timelog.startDate forKey:@"startDate"];
-    [newManagedObject setValue:[NSNumber numberWithDouble:timelog.duration] forKey:@"duration"];
+    [newManagedObject setValue:timelog.duration forKey:@"duration"];
+    
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+    else {
+        NSLog(@"Registro de TimeLog guardado con exito");
+    }
+}
+
+- (void)insertTimeLog:(NSNumber *)interval startDate:(NSDate *)date activity:(Activity *)activity {
+    NSManagedObjectContext *context = self.managedObjectContext;
+    TimeLog *newTimeLog = [NSEntityDescription insertNewObjectForEntityForName:@"TimeLog" inManagedObjectContext:context];
+    
+    newTimeLog.startDate = date;
+    newTimeLog.duration = interval;
+    newTimeLog.activity = activity;
     
     NSError *error = nil;
     if (![context save:&error]) {

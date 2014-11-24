@@ -18,8 +18,11 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 - (NSURL *)applicationDocumentsDirectory;
-- (void)insertActivity:(Activity*)activity;
-- (void)insertTimeLog:(TimeLog*)timelog;
+- (NSManagedObjectContext*)managedObjectContext;
+- (void)insertActivity:(Activity *)activity;
+- (void)insertActivity:(NSString*)name startDate:(NSDate*)date repeatNumber:(NSNumber*)repeat category:(NSString*)category;
+- (void)insertTimeLog:(TimeLog *)timelog;
+- (void)insertTimeLog:(NSNumber*)interval startDate:(NSDate*)date activity:(Activity*)activity;
 - (NSArray*)getActivities;
 - (NSArray*)getTimeLogs;
 + (ApiBD*)getSharedInstance;
