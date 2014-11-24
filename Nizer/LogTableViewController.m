@@ -29,8 +29,7 @@
 {
     [super viewDidLoad];
     self.bd = [ApiBD getSharedInstance];
-    timeLogs = [self.bd getTimeLogs];
-    
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
