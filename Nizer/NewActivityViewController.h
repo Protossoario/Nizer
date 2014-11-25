@@ -12,10 +12,10 @@
 
 @interface NewActivityViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *nameText;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *repeatControl;
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
-@property (weak, nonatomic) IBOutlet UIPickerView *categoryPicker;
+@property (strong, nonatomic) IBOutlet UITextField *nameText;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *repeatControl;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) IBOutlet UIPickerView *categoryPicker;
 - (void)saveActivity;
 - (IBAction)tapGestureAction:(id)sender;
 

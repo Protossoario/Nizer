@@ -48,6 +48,39 @@
 
 - (void)saveActivity {
     [bd insertActivity:self.nameText.text startDate:self.datePicker.date repeatNumber:[NSNumber numberWithInteger:self.repeatControl.selectedSegmentIndex] category:categories[[self.categoryPicker selectedRowInComponent:0]]];
+    
+    
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = _datePicker.date;
+    NSString *act = _nameText.text;
+    localNotification.alertBody = [NSString stringWithFormat:@"Actividad %@ pendiente!", act];
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.applicationIconBadgeNumber = 1;
+    
+    //never daily weekly monthly
+    
+    NSInteger index = [_repeatControl selectedSegmentIndex];
+    
+    switch (index) {
+        case 1:
+            localNotification.repeatInterval = NSDayCalendarUnit;
+            break;
+        case 2:
+            localNotification.repeatInterval = NSWeekCalendarUnit;
+            break;
+        case 3:
+           localNotification.repeatInterval = NSMonthCalendarUnit;
+            break;
+        default:
+            localNotification.repeatInterval = 0;
+            break;
+    }
+    
+    localNotification.repeatInterval=NSMinuteCalendarUnit;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+
+    
 }
 
 - (IBAction)tapGestureAction:(id)sender {
