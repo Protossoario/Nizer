@@ -62,6 +62,9 @@
     NSInteger index = [_repeatControl selectedSegmentIndex];
     
     switch (index) {
+        case 0:
+            return;
+            break;
         case 1:
             localNotification.repeatInterval = NSDayCalendarUnit;
             break;

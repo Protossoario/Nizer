@@ -15,7 +15,9 @@
 
 @end
 
+
 @implementation ActivityTableViewController
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -121,13 +123,5 @@
     [self.tableView reloadData];
 }
 
-- (IBAction)share:(id)sender {
-        NSString *textToPost = @"Estoy usando Nizer.";
-        //UIImage *imageToPost = self.imagenDuck.image; //lo que se comparte
-        
-        NSArray *activityItems = @[textToPost];
-        self.activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-        [self presentViewController:self.activityViewController animated:YES completion:nil];
-    
-}
+
 @end

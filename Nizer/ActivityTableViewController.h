@@ -13,8 +13,7 @@
 
 @interface ActivityTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) UIActivityViewController *activityViewController;
-- (IBAction)share:(id)sender;
+
 - (IBAction)unwindToActivityTableViewController:(UIStoryboardSegue *)segue;
 
 

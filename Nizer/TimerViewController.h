@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Social/Social.h>
+
 #import "ApiBD.h"
 #import "Activity.h"
 #import "TimeLog.h"
@@ -24,5 +26,10 @@
 - (IBAction)startStopwatch:(id)sender;
 - (IBAction)pauseStopwatch:(id)sender;
 - (void)saveTimeLog;
+
+@property (nonatomic, strong) UIActivityViewController *activityViewController;
+- (IBAction)fbButton:(id)sender;
+- (IBAction)twButton:(id)sender;
+- (IBAction)share:(id)sender;
 
 @end
