@@ -188,7 +188,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZC-v3-nII">
-                                <rect key="frame" x="140" y="248" width="41" height="30"/>
+                                <rect key="frame" x="84" y="246" width="41" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8zP-XV-HXr"/>
                                 </constraints>
@@ -208,12 +208,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8OL-Qr-pYn">
-                                <rect key="frame" x="71" y="367" width="66" height="63"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="63" id="Hh5-dn-NBU"/>
-                                    <constraint firstAttribute="width" constant="66" id="dBU-Et-x7d"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8OL-Qr-pYn">
+                                <rect key="frame" x="71" y="318" width="66" height="63"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Button" image="fb_icon_325x325.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -222,17 +218,8 @@
                                     <action selector="fbButton:" destination="IrC-Ay-6Tk" eventType="touchUpInside" id="isx-PP-L7w"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DhI-MN-6Mq">
-                                <rect key="frame" x="140" y="458" width="40" height="30"/>
-                                <state key="normal" title="Share">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="share:" destination="IrC-Ay-6Tk" eventType="touchUpInside" id="QXN-Kz-npq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmi-KN-Phf">
-                                <rect key="frame" x="177" y="363" width="72" height="72"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmi-KN-Phf">
+                                <rect key="frame" x="177" y="314" width="72" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Button" image="728567main_twitter-icon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -241,31 +228,34 @@
                                     <action selector="twButton:" destination="IrC-Ay-6Tk" eventType="touchUpInside" id="F6S-CR-GCN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DhI-MN-6Mq">
+                                <rect key="frame" x="193" y="408" width="40" height="30"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="share:" destination="IrC-Ay-6Tk" eventType="touchUpInside" id="QXN-Kz-npq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pWC-WM-hTG" firstAttribute="top" secondItem="Nmi-KN-Phf" secondAttribute="bottom" constant="84" id="0mP-j5-Se8"/>
-                            <constraint firstItem="eZC-v3-nII" firstAttribute="centerX" secondItem="DhI-MN-6Mq" secondAttribute="centerX" id="3NX-Jt-04L"/>
+                            <constraint firstItem="pWC-WM-hTG" firstAttribute="top" secondItem="DhI-MN-6Mq" secondAttribute="bottom" constant="81" id="2jZ-6k-4te"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NKd-dR-cnX" secondAttribute="trailing" constant="4" id="6Jg-5f-VOg"/>
-                            <constraint firstItem="8OL-Qr-pYn" firstAttribute="leading" secondItem="yA7-bB-Og3" secondAttribute="leadingMargin" constant="55" id="6YN-vG-3RD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Nmi-KN-Phf" secondAttribute="trailing" constant="55" id="7mw-Ax-FF9"/>
                             <constraint firstItem="59d-CL-040" firstAttribute="top" secondItem="A09-Sd-tnW" secondAttribute="bottom" constant="8" symbolic="YES" id="FdL-M5-7lg"/>
                             <constraint firstItem="NKd-dR-cnX" firstAttribute="top" secondItem="eap-Ax-zNh" secondAttribute="bottom" constant="8" symbolic="YES" id="GZk-7s-Mwh"/>
                             <constraint firstItem="JPS-lf-li8" firstAttribute="leading" secondItem="yA7-bB-Og3" secondAttribute="leadingMargin" constant="33" id="O3J-HU-O2L"/>
                             <constraint firstItem="eap-Ax-zNh" firstAttribute="top" secondItem="59d-CL-040" secondAttribute="bottom" constant="8" symbolic="YES" id="SwC-xS-Nt2"/>
-                            <constraint firstItem="DhI-MN-6Mq" firstAttribute="centerX" secondItem="yA7-bB-Og3" secondAttribute="centerX" id="UVp-Qo-GBK"/>
-                            <constraint firstItem="eZC-v3-nII" firstAttribute="top" secondItem="NKd-dR-cnX" secondAttribute="bottom" constant="60" id="UaA-ft-bpI"/>
+                            <constraint firstItem="eZC-v3-nII" firstAttribute="top" secondItem="NKd-dR-cnX" secondAttribute="bottom" constant="58" id="UaA-ft-bpI"/>
                             <constraint firstItem="eap-Ax-zNh" firstAttribute="leading" secondItem="yA7-bB-Og3" secondAttribute="leadingMargin" constant="6" id="Xtr-TQ-W88"/>
-                            <constraint firstItem="Nmi-KN-Phf" firstAttribute="leading" secondItem="8OL-Qr-pYn" secondAttribute="trailing" constant="40" id="Y2I-if-8LV"/>
                             <constraint firstItem="52o-9f-syk" firstAttribute="baseline" secondItem="JPS-lf-li8" secondAttribute="baseline" id="ag7-Uq-spf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="52o-9f-syk" secondAttribute="trailing" constant="32" id="d2g-oo-f3P"/>
-                            <constraint firstItem="pWC-WM-hTG" firstAttribute="top" secondItem="DhI-MN-6Mq" secondAttribute="bottom" constant="31" id="dJt-Ve-Toa"/>
                             <constraint firstItem="NKd-dR-cnX" firstAttribute="leading" secondItem="eap-Ax-zNh" secondAttribute="leading" id="dT4-Eu-Mpf"/>
-                            <constraint firstItem="Nmi-KN-Phf" firstAttribute="top" secondItem="eZC-v3-nII" secondAttribute="bottom" constant="85" id="fpO-ia-OqO"/>
-                            <constraint firstItem="pWC-WM-hTG" firstAttribute="top" secondItem="8OL-Qr-pYn" secondAttribute="bottom" constant="89" id="jQC-xx-l5v"/>
-                            <constraint firstItem="eap-Ax-zNh" firstAttribute="centerX" secondItem="eZC-v3-nII" secondAttribute="centerX" id="jeX-Gf-vFa"/>
+                            <constraint firstItem="eap-Ax-zNh" firstAttribute="centerX" secondItem="eZC-v3-nII" secondAttribute="centerX" constant="55.5" id="jeX-Gf-vFa"/>
                             <constraint firstItem="eap-Ax-zNh" firstAttribute="centerX" secondItem="59d-CL-040" secondAttribute="centerX" id="nfw-xI-05L"/>
+                            <constraint firstItem="DhI-MN-6Mq" firstAttribute="centerX" secondItem="eZC-v3-nII" secondAttribute="centerX" constant="108.5" id="sK3-mA-stC"/>
                             <constraint firstItem="JPS-lf-li8" firstAttribute="top" secondItem="NKd-dR-cnX" secondAttribute="bottom" constant="8" symbolic="YES" id="sU4-r9-yjW"/>
+                            <constraint firstItem="DhI-MN-6Mq" firstAttribute="centerX" secondItem="yA7-bB-Og3" secondAttribute="centerX" constant="53" id="xN1-zk-qQx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UqP-ft-28Y">
