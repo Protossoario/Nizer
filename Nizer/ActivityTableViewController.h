@@ -14,8 +14,6 @@
 
 @interface ActivityTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
-
 - (IBAction)unwindToActivityTableViewController:(UIStoryboardSegue *)segue;
-
 
 @end
