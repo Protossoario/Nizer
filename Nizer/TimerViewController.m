@@ -162,7 +162,9 @@
         SLComposeViewController *facebookController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         
         //set initial message
-        [facebookController setInitialText:@"¡Prueba Nizer y organízate junto conmigo!"];
+        NSString *mensaje = self.activity.name;
+        NSString *men = [NSString stringWithFormat: @"¡Estoy haciendo mi actividad del día: %@ !",mensaje];
+        [facebookController setInitialText:men];
         
         //present the controller to the user
         [self presentViewController:facebookController animated:YES completion:nil];
@@ -182,7 +184,9 @@
         SLComposeViewController *twitterController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         
         //set initial message
-        [twitterController setInitialText:@"¡Prueba la nueva aplicación de Nizer y organiza tus actividades!"];
+        NSString *mensaje = self.activity.name;
+        NSString *men = [NSString stringWithFormat: @"¡Estoy haciendo mi actividad del día: %@ !",mensaje];
+        [twitterController setInitialText:men];
         
         
         //present the controller to the user
@@ -190,7 +194,7 @@
         
     }else
     {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Twitter Error" message:@"You may not have set Twitter correctl on your device." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Twitter Error" message:@"You may not have set Twitter correctly on your device." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
     }
     
