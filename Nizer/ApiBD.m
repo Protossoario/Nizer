@@ -14,6 +14,18 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+- (void)saveData {
+    NSManagedObjectContext *context = self.managedObjectContext;
+    NSError *error = nil;
+    
+    if (![context save:&error]) {
+        NSLog(@"Error al guardar los datos %@, %@", error, [error userInfo]);
+    }
+    else {
+        NSLog(@"Datos guardados");
+    }
+}
+
 - (void)insertActivity:(Activity *)activity {
     NSManagedObjectContext *context = self.managedObjectContext;
     NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Activity" inManagedObjectContext:context];
@@ -83,6 +95,24 @@
     }
 }
 
+- (void)insertRunningTimeLog:(NSNumber *)interval startDate:(NSDate *)startDate activity:(Activity *)activity suspendDate:(NSDate *)suspendDate {
+    NSManagedObjectContext *context = self.managedObjectContext;
+    TimeLog *newRunningTimeLog = [NSEntityDescription insertNewObjectForEntityForName:@"TimeLog" inManagedObjectContext:context];
+    
+    newRunningTimeLog.startDate = startDate;
+    newRunningTimeLog.duration = interval;
+    newRunningTimeLog.running = activity;
+    newRunningTimeLog.suspendDate = suspendDate;
+    
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+    else {
+        NSLog(@"Registro de TimeLog suspendido guardado con exito");
+    }
+}
+
 - (NSArray*)getActivities {
     NSManagedObjectContext *context = self.managedObjectContext;
     
@@ -107,6 +137,9 @@
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"activity <> nil"];
+    [request setPredicate:predicate];
     
     NSError *error;
     NSArray *objects = [context executeFetchRequest:request error:&error];

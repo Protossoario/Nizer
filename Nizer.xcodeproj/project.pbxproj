@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300100D21A267F0300EEF27F /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 300100D11A267F0300EEF27F /* Activity.m */; };
+		300100D51A267F0300EEF27F /* TimeLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 300100D41A267F0300EEF27F /* TimeLog.m */; };
 		3071FB1919F8083F00A8C0DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB1819F8083F00A8C0DB /* main.m */; };
 		3071FB1C19F8083F00A8C0DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB1B19F8083F00A8C0DB /* AppDelegate.m */; };
 		3071FB2519F8083F00A8C0DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3071FB2319F8083F00A8C0DB /* Main.storyboard */; };
@@ -14,8 +16,6 @@
 		3071FB3619F8084000A8C0DB /* NizerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB3519F8084000A8C0DB /* NizerTests.m */; };
 		3071FB4019F81DD600A8C0DB /* deal-active-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3071FB3F19F81DD600A8C0DB /* deal-active-icon.png */; };
 		3071FB4219F81DDB00A8C0DB /* Active_Icons_Exercise.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3071FB4119F81DDB00A8C0DB /* Active_Icons_Exercise.gif */; };
-		308D62EE1A2291B10016ED40 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 308D62ED1A2291B10016ED40 /* Activity.m */; };
-		308D62F11A2291B10016ED40 /* TimeLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 308D62F01A2291B10016ED40 /* TimeLog.m */; };
 		309CD69C1A09C346009F7181 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309CD69B1A09C346009F7181 /* Default-568h@2x.png */; };
 		30A01C961A0C356800BD8FA6 /* ActivityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A01C951A0C356800BD8FA6 /* ActivityTableViewController.m */; };
 		30A01C991A0C35F600BD8FA6 /* NewActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A01C981A0C35F600BD8FA6 /* NewActivityViewController.m */; };
@@ -41,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		300100D01A267F0300EEF27F /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
+		300100D11A267F0300EEF27F /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		300100D31A267F0300EEF27F /* TimeLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLog.h; sourceTree = "<group>"; };
+		300100D41A267F0300EEF27F /* TimeLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLog.m; sourceTree = "<group>"; };
 		3071FB1319F8083F00A8C0DB /* Nizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3071FB1719F8083F00A8C0DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3071FB1819F8083F00A8C0DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,10 +57,6 @@
 		3071FB3519F8084000A8C0DB /* NizerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NizerTests.m; sourceTree = "<group>"; };
 		3071FB3F19F81DD600A8C0DB /* deal-active-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deal-active-icon.png"; sourceTree = "<group>"; };
 		3071FB4119F81DDB00A8C0DB /* Active_Icons_Exercise.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Active_Icons_Exercise.gif; sourceTree = "<group>"; };
-		308D62EC1A2291B10016ED40 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
-		308D62ED1A2291B10016ED40 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
-		308D62EF1A2291B10016ED40 /* TimeLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLog.h; sourceTree = "<group>"; };
-		308D62F01A2291B10016ED40 /* TimeLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLog.m; sourceTree = "<group>"; };
 		309CD69B1A09C346009F7181 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		30A01C941A0C356800BD8FA6 /* ActivityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewController.h; sourceTree = "<group>"; };
 		30A01C951A0C356800BD8FA6 /* ActivityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewController.m; sourceTree = "<group>"; };
@@ -97,6 +97,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		300100D61A267F1600EEF27F /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				300100D01A267F0300EEF27F /* Activity.h */,
+				300100D11A267F0300EEF27F /* Activity.m */,
+			);
+			name = Activity;
+			sourceTree = "<group>";
+		};
+		300100D71A267F1C00EEF27F /* TimeLog */ = {
+			isa = PBXGroup;
+			children = (
+				300100D31A267F0300EEF27F /* TimeLog.h */,
+				300100D41A267F0300EEF27F /* TimeLog.m */,
+			);
+			name = TimeLog;
+			sourceTree = "<group>";
+		};
 		3071FB0A19F8083F00A8C0DB = {
 			isa = PBXGroup;
 			children = (
@@ -128,8 +146,6 @@
 				3071FB3F19F81DD600A8C0DB /* deal-active-icon.png */,
 				3071FB2619F8083F00A8C0DB /* Images.xcassets */,
 				30B2A13F1A18111700EDACA2 /* Model.xcdatamodeld */,
-				308D62F21A2291CC0016ED40 /* TimeLog */,
-				308D62F31A2291D20016ED40 /* Activity */,
 				8737A5BA1A152CF20090969D /* AppDelegate */,
 				8737A5BF1A152D400090969D /* ActivityTableViewController */,
 				8737A5BE1A152D320090969D /* NewActivityViewController */,
@@ -138,6 +154,8 @@
 				8737A5BB1A152D080090969D /* ConfigViewController */,
 				3071FB1619F8083F00A8C0DB /* Supporting Files */,
 				30B2A1451A181F2E00EDACA2 /* ApiBD */,
+				300100D71A267F1C00EEF27F /* TimeLog */,
+				300100D61A267F1600EEF27F /* Activity */,
 			);
 			path = Nizer;
 			sourceTree = "<group>";
@@ -166,24 +184,6 @@
 				3071FB3419F8084000A8C0DB /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		308D62F21A2291CC0016ED40 /* TimeLog */ = {
-			isa = PBXGroup;
-			children = (
-				308D62EF1A2291B10016ED40 /* TimeLog.h */,
-				308D62F01A2291B10016ED40 /* TimeLog.m */,
-			);
-			name = TimeLog;
-			sourceTree = "<group>";
-		};
-		308D62F31A2291D20016ED40 /* Activity */ = {
-			isa = PBXGroup;
-			children = (
-				308D62EC1A2291B10016ED40 /* Activity.h */,
-				308D62ED1A2291B10016ED40 /* Activity.m */,
-			);
-			name = Activity;
 			sourceTree = "<group>";
 		};
 		30B2A1451A181F2E00EDACA2 /* ApiBD */ = {
@@ -353,16 +353,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				300100D51A267F0300EEF27F /* TimeLog.m in Sources */,
 				30B2A1441A181F2400EDACA2 /* ApiBD.m in Sources */,
-				308D62F11A2291B10016ED40 /* TimeLog.m in Sources */,
 				30A01C991A0C35F600BD8FA6 /* NewActivityViewController.m in Sources */,
 				3071FB1C19F8083F00A8C0DB /* AppDelegate.m in Sources */,
 				30A01C9F1A0C393600BD8FA6 /* LogTableViewController.m in Sources */,
+				300100D21A267F0300EEF27F /* Activity.m in Sources */,
 				30B2A1411A18111700EDACA2 /* Model.xcdatamodeld in Sources */,
 				30A01C9C1A0C36B500BD8FA6 /* TimerViewController.m in Sources */,
 				30A01C961A0C356800BD8FA6 /* ActivityTableViewController.m in Sources */,
 				30A01CA21A0C395B00BD8FA6 /* ConfigViewController.m in Sources */,
-				308D62EE1A2291B10016ED40 /* Activity.m in Sources */,
 				3071FB1919F8083F00A8C0DB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
