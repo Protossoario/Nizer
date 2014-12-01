@@ -38,6 +38,8 @@
     } else {
         self.notificationsLabel.text = @"No Notifications";
          [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Notifications Gone" message:@"Notifications have been disabled for all activities. In order to see them again you must re-add the activities." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
     }
 }
 
