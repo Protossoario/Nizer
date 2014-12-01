@@ -32,7 +32,9 @@
 {
     [super viewDidLoad];
     self.bd = [ApiBD getSharedInstance];
+    paused = YES;
     if (self.activity.running != nil) {
+        NSLog(@"Cargando TimeLog suspendido.");
         TimeLog *runningLog = self.activity.running;
         secondsAlreadyRun = [runningLog.duration doubleValue];
         self.firstStartDate = runningLog.startDate;
@@ -41,31 +43,25 @@
         [dateFormatter setDateFormat:@"dd/MM/yy HH:mm:ss"];
         self.startDateLabel.text = [NSString stringWithFormat:@"Start date: %@", [dateFormatter stringFromDate:self.firstStartDate]];
         
-        NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:secondsAlreadyRun];
-        [dateFormatter setDateFormat:@"HH:mm:ss"];
-        [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-        NSString *timeString=[dateFormatter stringFromDate:timerDate];
-        _stopwatchLabel.text = timeString;
-        
         started = YES;
         
         if (runningLog.suspendDate != nil) {
             secondsAlreadyRun += [[NSDate date] timeIntervalSinceDate:runningLog.suspendDate];
+            NSLog(@"Tiempo en el fondo=%@", [[NSNumber numberWithDouble:[[NSDate date] timeIntervalSinceDate:runningLog.suspendDate]] stringValue]);
             [self startStopwatch:nil];
-            paused = NO;
         }
         else {
-            NSLog(@"Suspend date is null (resuming a paused log).");
-            NSLog(@"Duration=%@", [runningLog.duration stringValue]);
-            NSLog(@"SecondsAlreadyRun=%@", [[NSNumber numberWithDouble:secondsAlreadyRun] stringValue]);
-            paused = YES;
+            NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:secondsAlreadyRun];
+            [dateFormatter setDateFormat:@"HH:mm:ss"];
+            [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
+            NSString *timeString=[dateFormatter stringFromDate:timerDate];
+            _stopwatchLabel.text = timeString;
         }
     }
     else {
         self.stopwatchLabel.text = @"00:00:00";
         secondsAlreadyRun = 0;
         started = NO;
-        paused = YES;
     }
     finished = NO;
     self.navigationItem.title = self.activity.name;
@@ -92,6 +88,7 @@
             [self.bd insertRunningTimeLog:[NSNumber numberWithDouble:secondsAlreadyRun] startDate:self.firstStartDate activity:self.activity suspendDate:nil];
         }
         else {
+            [self pauseStopwatch:nil];
             [self.bd insertRunningTimeLog:[NSNumber numberWithDouble:secondsAlreadyRun] startDate:self.firstStartDate activity:self.activity suspendDate:[NSDate date]];
         }
     }
@@ -117,25 +114,24 @@
 }
 
 - (IBAction)startStopwatch:(id)sender {
-    _startDate = [NSDate date];
     if (!started) {
-        self.firstStartDate = self.startDate;
+        self.firstStartDate = [NSDate date];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"dd/MM/yy HH:mm:ss"];
-        self.startDateLabel.text = [NSString stringWithFormat:@"Start date: %@", [dateFormatter stringFromDate:_startDate]];
+        self.startDateLabel.text = [NSString stringWithFormat:@"Start date: %@", [dateFormatter stringFromDate:self.firstStartDate]];
         started = YES;
     }
-    _stopwatchTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                       target:self
-                                                     selector:@selector(updateTimer)
-                                                     userInfo:nil
-                                                      repeats:YES];
     
     if (paused) {
+        _startDate = [NSDate date];
+        _stopwatchTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                           target:self
+                                                         selector:@selector(updateTimer)
+                                                         userInfo:nil
+                                                          repeats:YES];
+        [_stopwatchTimer fire];
         paused = NO;
     }
-    
-    [_stopwatchTimer fire];
 }
 
 - (IBAction)pauseStopwatch:(id)sender {
