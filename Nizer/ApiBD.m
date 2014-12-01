@@ -2,8 +2,8 @@
 //  ApiBD.m
 //  Nizer
 //
-//  Created by Eduardo Alberto Sanchez Alvarado on 11/15/14.
-//  Copyright (c) 2014 Eduardo Alberto Sanchez Alvarado. All rights reserved.
+//  Created by Equipo Nizer on 11/15/14.
+//  Copyright (c) 2014 Equipo Nizer. All rights reserved.
 //
 
 #import "ApiBD.h"
@@ -148,6 +148,22 @@
         NSLog(@"No existen actividades que cargar");
     }
     return objects;
+}
+
+-(void) deleteActivity:(Activity *)activity
+{
+    
+    NSManagedObjectContext *context = self.managedObjectContext;
+    [context deleteObject:activity];
+    
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+    else {
+        NSLog(@"Actividad borrada con éxito");
+    }
+    
 }
 
 #pragma mark - Core Data stack

@@ -2,8 +2,8 @@
 //  ActivityTableViewController.m
 //  Nizer
 //
-//  Created by Eduardo Alberto Sanchez Alvarado on 11/6/14.
-//  Copyright (c) 2014 Eduardo Alberto Sanchez Alvarado. All rights reserved.
+//  Created by Equipo Nizer on 11/6/14.
+//  Copyright (c) 2014 Equipo Nizer. All rights reserved.
 //
 
 #import "ActivityTableViewController.h"
@@ -50,7 +50,8 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,18 +96,26 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [tableView beginUpdates];
+
+        [tableView reloadData];
+        [bd deleteActivity:activities[[indexPath row]]];
+        activities = [bd getActivities];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView endUpdates];
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -123,6 +132,7 @@
     return YES;
 }
 */
+
 
 #pragma mark - Navigation
 

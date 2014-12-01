@@ -431,6 +431,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Config" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="myswitch" destination="s3r-vd-6Vd" id="UIa-PB-e7t"/>
+                        <outlet property="notificationsLabel" destination="Cw0-Fg-maX" id="qSE-Mw-zJS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
