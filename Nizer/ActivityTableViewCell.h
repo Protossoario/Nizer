@@ -10,6 +10,7 @@
 
 @interface ActivityTableViewCell : UITableViewCell <UIWebViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 

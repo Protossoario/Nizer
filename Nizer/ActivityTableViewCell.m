@@ -14,7 +14,6 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
     }
     return self;
 }
@@ -32,6 +31,7 @@
 }
 
 - (void)loadWebViewImage:(NSString*)stringURL {
+    [self.loadingIndicator startAnimating];
     NSURL *url = [NSURL URLWithString:stringURL];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:request];
@@ -47,6 +47,7 @@
     webView.scrollView.minimumZoomScale = scale;
     webView.scrollView.maximumZoomScale = scale;
     webView.scrollView.zoomScale = scale;
+    [self.loadingIndicator stopAnimating];
 }
 
 @end

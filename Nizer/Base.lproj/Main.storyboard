@@ -265,6 +265,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="startDateLabel" destination="NKd-dR-cnX" id="40y-8s-w0t"/>
                         <outlet property="stopwatchLabel" destination="eap-Ax-zNh" id="cm8-cr-xVf"/>
@@ -482,6 +483,10 @@
                                                 <outlet property="delegate" destination="O2W-oY-n16" id="sVf-Qc-0e0"/>
                                             </connections>
                                         </webView>
+                                        <activityIndicatorView hidden="YES" appearanceType="aqua" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Vmg-mx-WlV">
+                                            <rect key="frame" x="267" y="13" width="20" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="centerY" secondItem="lEz-bc-weS" secondAttribute="centerY" id="56X-g0-IxA"/>
@@ -492,6 +497,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="loadingIndicator" destination="Vmg-mx-WlV" id="cGh-3W-eyn"/>
                                     <outlet property="nameLabel" destination="Icr-LX-aLh" id="Jid-m1-Fje"/>
                                     <outlet property="webView" destination="lEz-bc-weS" id="lmi-ol-EB4"/>
                                     <segue destination="IrC-Ay-6Tk" kind="push" identifier="openActivity" id="0i3-OM-py0"/>
