@@ -10,6 +10,8 @@
 
 @interface TimerViewController () {
     BOOL started;
+    BOOL paused;
+    BOOL finished;
     NSTimeInterval secondsAlreadyRun;
 }
 
@@ -30,10 +32,69 @@
 {
     [super viewDidLoad];
     self.bd = [ApiBD getSharedInstance];
-    self.stopwatchLabel.text = @"00:00:00";
+    if (self.activity.running != nil) {
+        TimeLog *runningLog = self.activity.running;
+        secondsAlreadyRun = [runningLog.duration doubleValue];
+        self.firstStartDate = runningLog.startDate;
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"dd/MM/yy HH:mm:ss"];
+        self.startDateLabel.text = [NSString stringWithFormat:@"Start date: %@", [dateFormatter stringFromDate:self.firstStartDate]];
+        
+        NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:secondsAlreadyRun];
+        [dateFormatter setDateFormat:@"HH:mm:ss"];
+        [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
+        NSString *timeString=[dateFormatter stringFromDate:timerDate];
+        _stopwatchLabel.text = timeString;
+        
+        started = YES;
+        
+        if (runningLog.suspendDate != nil) {
+            secondsAlreadyRun += [[NSDate date] timeIntervalSinceDate:runningLog.suspendDate];
+            [self startStopwatch:nil];
+            paused = NO;
+        }
+        else {
+            NSLog(@"Suspend date is null (resuming a paused log).");
+            NSLog(@"Duration=%@", [runningLog.duration stringValue]);
+            NSLog(@"SecondsAlreadyRun=%@", [[NSNumber numberWithDouble:secondsAlreadyRun] stringValue]);
+            paused = YES;
+        }
+    }
+    else {
+        self.stopwatchLabel.text = @"00:00:00";
+        secondsAlreadyRun = 0;
+        started = NO;
+        paused = YES;
+    }
+    finished = NO;
     self.navigationItem.title = self.activity.name;
-    secondsAlreadyRun = 0;
-    started = NO;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    if (self.activity.running != nil && !finished) {
+        if (paused) {
+            self.activity.running.duration = [NSNumber numberWithDouble:secondsAlreadyRun];
+            self.activity.running.suspendDate = nil;
+            [self.bd saveData];
+        }
+        else {
+            [self pauseStopwatch:nil];
+            self.activity.running.duration = [NSNumber numberWithDouble:secondsAlreadyRun];
+            self.activity.running.suspendDate = [NSDate date];
+            [self.bd saveData];
+        }
+    }
+    else if (started && !finished) {
+        if (paused) {
+            [self.bd insertRunningTimeLog:[NSNumber numberWithDouble:secondsAlreadyRun] startDate:self.firstStartDate activity:self.activity suspendDate:nil];
+        }
+        else {
+            [self.bd insertRunningTimeLog:[NSNumber numberWithDouble:secondsAlreadyRun] startDate:self.firstStartDate activity:self.activity suspendDate:[NSDate date]];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,7 +117,7 @@
 }
 
 - (IBAction)startStopwatch:(id)sender {
-    _startDate = [[NSDate alloc] init];
+    _startDate = [NSDate date];
     if (!started) {
         self.firstStartDate = self.startDate;
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -69,21 +130,32 @@
                                                      selector:@selector(updateTimer)
                                                      userInfo:nil
                                                       repeats:YES];
+    
+    if (paused) {
+        paused = NO;
+    }
+    
     [_stopwatchTimer fire];
 }
 
 - (IBAction)pauseStopwatch:(id)sender {
-    secondsAlreadyRun += [[NSDate date] timeIntervalSinceDate:_startDate];
-    [_stopwatchTimer invalidate];
-    _stopwatchTimer = nil;
+    if (!paused) {
+        secondsAlreadyRun += [[NSDate date] timeIntervalSinceDate:_startDate];
+        [_stopwatchTimer invalidate];
+        _stopwatchTimer = nil;
+        paused = YES;
+    }
 }
 
 - (void)saveTimeLog {
-    if (started) {
-        secondsAlreadyRun += [[NSDate date] timeIntervalSinceDate:_startDate];
+    if (started && self.activity.running != nil) {
+        self.activity.running.duration = [NSNumber numberWithDouble:secondsAlreadyRun];
+        [self.activity addTimeLogsObject:self.activity.running];
+        self.activity.running = nil;
+        [self.bd saveData];
+    }
+    else if (started) {
         [self.bd insertTimeLog:[NSNumber numberWithDouble:secondsAlreadyRun] startDate:self.firstStartDate activity:self.activity];
-        //secondsAlreadyRun = 0;
-        //self.stopwatchLabel.text = @"00:00:00";
     }
 }
 
@@ -144,7 +216,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"unwindToActivityTableViewController"]) {
+        [self pauseStopwatch:nil];
         [self saveTimeLog];
+        finished = YES;
     }
 }
 

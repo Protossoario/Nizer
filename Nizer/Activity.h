@@ -2,7 +2,7 @@
 //  Activity.h
 //  Nizer
 //
-//  Created by Eduardo Alberto Sanchez Alvarado on 11/23/14.
+//  Created by Eduardo Alberto Sanchez Alvarado on 11/26/14.
 //  Copyright (c) 2014 Eduardo Alberto Sanchez Alvarado. All rights reserved.
 //
 
@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * repeat;
 @property (nonatomic, retain) NSSet *timeLogs;
+@property (nonatomic, retain) TimeLog *running;
 @end
 
 @interface Activity (CoreDataGeneratedAccessors)

@@ -2,7 +2,7 @@
 //  Activity.m
 //  Nizer
 //
-//  Created by Eduardo Alberto Sanchez Alvarado on 11/23/14.
+//  Created by Eduardo Alberto Sanchez Alvarado on 11/26/14.
 //  Copyright (c) 2014 Eduardo Alberto Sanchez Alvarado. All rights reserved.
 //
 
@@ -17,5 +17,6 @@
 @dynamic name;
 @dynamic repeat;
 @dynamic timeLogs;
+@dynamic running;
 
 @end
