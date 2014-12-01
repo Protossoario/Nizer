@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    categories = [[NSArray alloc] initWithObjects:@"Work", @"School", @"Athletic", @"Fun", @"Read", nil];
+    categories = [[NSArray alloc] initWithObjects:@"Work", @"School", @"Athletic", @"Artistic", @"Fun", @"Entertainment", @"Shopping", nil];
     bd = [ApiBD getSharedInstance];
 }
 

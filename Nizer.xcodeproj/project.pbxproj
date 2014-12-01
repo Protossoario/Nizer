@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		300100D21A267F0300EEF27F /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 300100D11A267F0300EEF27F /* Activity.m */; };
 		300100D51A267F0300EEF27F /* TimeLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 300100D41A267F0300EEF27F /* TimeLog.m */; };
+		30639A0C1A2CF53F00AC9370 /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30639A0B1A2CF53F00AC9370 /* ActivityTableViewCell.m */; };
 		3071FB1919F8083F00A8C0DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB1819F8083F00A8C0DB /* main.m */; };
 		3071FB1C19F8083F00A8C0DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB1B19F8083F00A8C0DB /* AppDelegate.m */; };
 		3071FB2519F8083F00A8C0DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3071FB2319F8083F00A8C0DB /* Main.storyboard */; };
@@ -45,6 +46,8 @@
 		300100D11A267F0300EEF27F /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		300100D31A267F0300EEF27F /* TimeLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLog.h; sourceTree = "<group>"; };
 		300100D41A267F0300EEF27F /* TimeLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLog.m; sourceTree = "<group>"; };
+		30639A0A1A2CF53F00AC9370 /* ActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCell.h; sourceTree = "<group>"; };
+		30639A0B1A2CF53F00AC9370 /* ActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewCell.m; sourceTree = "<group>"; };
 		3071FB1319F8083F00A8C0DB /* Nizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3071FB1719F8083F00A8C0DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3071FB1819F8083F00A8C0DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -115,6 +118,15 @@
 			name = TimeLog;
 			sourceTree = "<group>";
 		};
+		30639A0D1A2CF54400AC9370 /* ActivityTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				30639A0A1A2CF53F00AC9370 /* ActivityTableViewCell.h */,
+				30639A0B1A2CF53F00AC9370 /* ActivityTableViewCell.m */,
+			);
+			name = ActivityTableViewCell;
+			sourceTree = "<group>";
+		};
 		3071FB0A19F8083F00A8C0DB = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +168,7 @@
 				30B2A1451A181F2E00EDACA2 /* ApiBD */,
 				300100D71A267F1C00EEF27F /* TimeLog */,
 				300100D61A267F1600EEF27F /* Activity */,
+				30639A0D1A2CF54400AC9370 /* ActivityTableViewCell */,
 			);
 			path = Nizer;
 			sourceTree = "<group>";
@@ -355,6 +368,7 @@
 			files = (
 				300100D51A267F0300EEF27F /* TimeLog.m in Sources */,
 				30B2A1441A181F2400EDACA2 /* ApiBD.m in Sources */,
+				30639A0C1A2CF53F00AC9370 /* ActivityTableViewCell.m in Sources */,
 				30A01C991A0C35F600BD8FA6 /* NewActivityViewController.m in Sources */,
 				3071FB1C19F8083F00A8C0DB /* AppDelegate.m in Sources */,
 				30A01C9F1A0C393600BD8FA6 /* LogTableViewController.m in Sources */,

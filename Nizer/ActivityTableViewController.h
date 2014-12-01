@@ -10,6 +10,7 @@
 #import "ApiBD.h"
 #import "Activity.h"
 #import "TimerViewController.h"
+#import "ActivityTableViewCell.h"
 
 @interface ActivityTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
