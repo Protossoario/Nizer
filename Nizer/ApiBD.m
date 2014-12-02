@@ -95,6 +95,24 @@
     }
 }
 
+- (void)insertTimeLog:(NSNumber *)interval startDate:(NSDate *)date activity:(Activity *)activity notes:(NSSet *)notes {
+    NSManagedObjectContext *context = self.managedObjectContext;
+    TimeLog *newTimeLog = [NSEntityDescription insertNewObjectForEntityForName:@"TimeLog" inManagedObjectContext:context];
+    
+    newTimeLog.startDate = date;
+    newTimeLog.duration = interval;
+    newTimeLog.activity = activity;
+    [newTimeLog addNotes:notes];
+    
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+    else {
+        NSLog(@"Registro de TimeLog guardado con exito");
+    }
+}
+
 - (void)insertRunningTimeLog:(NSNumber *)interval startDate:(NSDate *)startDate activity:(Activity *)activity suspendDate:(NSDate *)suspendDate {
     NSManagedObjectContext *context = self.managedObjectContext;
     TimeLog *newRunningTimeLog = [NSEntityDescription insertNewObjectForEntityForName:@"TimeLog" inManagedObjectContext:context];
@@ -111,6 +129,21 @@
     else {
         NSLog(@"Registro de TimeLog suspendido guardado con exito");
     }
+}
+
+- (Note *)insertNote {
+    NSManagedObjectContext *context = self.managedObjectContext;
+    Note *newNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:context];
+        
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+    else {
+        NSLog(@"Nueva nota creada con exito");
+    }
+    
+    return newNote;
 }
 
 - (NSArray*)getActivities {

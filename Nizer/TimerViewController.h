@@ -12,6 +12,8 @@
 #import "ApiBD.h"
 #import "Activity.h"
 #import "TimeLog.h"
+#import "Note.h"
+#import "NewNoteViewController.h"
 
 @interface TimerViewController : UIViewController
 
@@ -22,14 +24,20 @@
 @property (strong, nonatomic) NSTimer *stopwatchTimer;  //store the timer that fires after a certain time
 @property (strong, nonatomic) NSDate *startDate;  //the date of the click of the start button
 @property (strong, nonatomic) NSDate *firstStartDate;
+@property (strong, nonatomic) NSMutableSet *notes;
+
 
 - (IBAction)startStopwatch:(id)sender;
 - (IBAction)pauseStopwatch:(id)sender;
 - (void)saveTimeLog;
 
+- (void)addNote:(Note*)note;
+
 @property (nonatomic, strong) UIActivityViewController *activityViewController;
 - (IBAction)fbButton:(id)sender;
 - (IBAction)twButton:(id)sender;
 - (IBAction)share:(id)sender;
+
+- (IBAction)unwindToTimerViewController:(UIStoryboardSegue *)segue;
 
 @end

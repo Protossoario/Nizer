@@ -8,15 +8,22 @@
         <relationship name="running" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimeLog" inverseName="running" inverseEntity="TimeLog" syncable="YES"/>
         <relationship name="timeLogs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TimeLog" inverseName="activity" inverseEntity="TimeLog" syncable="YES"/>
     </entity>
+    <entity name="Note" representedClassName="Note" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="voice" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="timelog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimeLog" inverseName="notes" inverseEntity="TimeLog" syncable="YES"/>
+    </entity>
     <entity name="TimeLog" representedClassName="TimeLog" syncable="YES">
         <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="suspendDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="activity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="timeLogs" inverseEntity="Activity" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="timelog" inverseEntity="Note" syncable="YES"/>
         <relationship name="running" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="running" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <elements>
         <element name="Activity" positionX="-63" positionY="-18" width="128" height="135"/>
-        <element name="TimeLog" positionX="-54" positionY="18" width="128" height="118"/>
+        <element name="TimeLog" positionX="-54" positionY="18" width="128" height="133"/>
+        <element name="Note" positionX="-54" positionY="45" width="128" height="88"/>
     </elements>
 </model>

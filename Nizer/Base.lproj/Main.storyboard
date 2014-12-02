@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <development version="5000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -285,7 +285,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="lGj-RK-TIH" kind="push" id="2v1-ol-1f4"/>
+                                    <segue destination="lGj-RK-TIH" kind="push" identifier="addNote" id="2v1-ol-1f4"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -332,6 +332,9 @@
                                         <constraint firstItem="Rfw-bx-lMt" firstAttribute="leading" secondItem="cth-z2-B8u" secondAttribute="leading" constant="20" id="aB8-Jd-6MD"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="XjV-23-umZ" kind="push" identifier="openNotes" id="gix-Hv-0zi"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -346,10 +349,39 @@
             </objects>
             <point key="canvasLocation" x="833.06666666666661" y="347.42666666666668"/>
         </scene>
-        <!--View Controller-->
+        <!--Notes Table View Controller-->
+        <scene sceneID="UTw-rO-h4H">
+            <objects>
+                <tableViewController id="XjV-23-umZ" customClass="NotesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fBA-bO-zrX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteCell" id="5Lc-Sj-gV5">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Lc-Sj-gV5" id="Lj7-gr-J0h">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XjV-23-umZ" id="Hdk-aG-5vE"/>
+                            <outlet property="delegate" destination="XjV-23-umZ" id="pzl-LD-X6h"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Vbe-oQ-ZmK"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z23-4T-ONQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="833" y="1022"/>
+        </scene>
+        <!--New Note View Controller-->
         <scene sceneID="9Lx-pi-Xnu">
             <objects>
-                <viewController id="lGj-RK-TIH" sceneMemberID="viewController">
+                <viewController id="lGj-RK-TIH" customClass="NewNoteViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="swE-4c-aNj"/>
                         <viewControllerLayoutGuide type="bottom" id="FxP-mv-9Nr"/>
@@ -361,7 +393,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tXI-dL-zYj">
                                 <rect key="frame" x="23" y="138" width="281" height="132"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -376,19 +407,66 @@
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="cr5-Ys-V4J" kind="unwind" identifier="unwindToTimerViewController" unwindAction="unwindToTimerViewController:" id="1Js-dV-c6S"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQL-f0-ENH">
-                                <rect key="frame" x="101" y="344" width="125" height="30"/>
-                                <state key="normal" title="Record voice note">
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xyb-7Q-xej">
+                                <rect key="frame" x="20" y="349" width="102" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start recording">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="recordButton:" destination="lGj-RK-TIH" eventType="touchUpInside" id="ZYh-2I-iLL"/>
+                                </connections>
+                            </button>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGR-ne-WvR">
+                                <rect key="frame" x="202" y="349" width="102" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Stop recording">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopButton:" destination="lGj-RK-TIH" eventType="touchUpInside" id="FIY-At-483"/>
+                                </connections>
+                            </button>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Voice note:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqQ-10-f3N">
+                                <rect key="frame" x="20" y="320" width="86" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgJ-oq-K8B">
+                                <rect key="frame" x="111" y="387" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play recording">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playButton:" destination="lGj-RK-TIH" eventType="touchUpInside" id="oNg-tR-rgE"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.91226448772694857" green="0.96379524274092288" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="soz-FF-UIm" appends="YES" id="cbq-X3-D6W"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="UnW-Du-LaE"/>
+                    <connections>
+                        <outlet property="textView" destination="tXI-dL-zYj" id="sWN-ft-ofV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58S-Lk-Wui" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cr5-Ys-V4J" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="soz-FF-UIm">
+                    <connections>
+                        <action selector="tapGestureAction:" destination="lGj-RK-TIH" id="j2P-i9-wjL"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1306.1333333333332" y="544.33333333333337"/>
         </scene>

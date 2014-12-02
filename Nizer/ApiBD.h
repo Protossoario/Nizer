@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "Activity.h"
 #import "TimeLog.h"
+#import "Note.h"
 
 @interface ApiBD : NSObject
 
@@ -24,7 +25,9 @@
 - (void)insertActivity:(NSString*)name startDate:(NSDate*)date repeatNumber:(NSNumber*)repeat category:(NSString*)category;
 - (void)insertTimeLog:(TimeLog *)timelog;
 - (void)insertTimeLog:(NSNumber*)interval startDate:(NSDate*)date activity:(Activity*)activity;
+- (void)insertTimeLog:(NSNumber*)interval startDate:(NSDate*)date activity:(Activity*)activity notes:(NSSet*)notes;
 - (void)insertRunningTimeLog:(NSNumber*)interval startDate:(NSDate*)startDate activity:(Activity*)activity suspendDate:(NSDate*)suspendDate;
+- (Note *)insertNote;
 - (NSArray*)getActivities;
 - (NSArray*)getTimeLogs;
 + (ApiBD*)getSharedInstance;

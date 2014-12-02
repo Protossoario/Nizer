@@ -10,6 +10,10 @@
 		300100D21A267F0300EEF27F /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 300100D11A267F0300EEF27F /* Activity.m */; };
 		300100D51A267F0300EEF27F /* TimeLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 300100D41A267F0300EEF27F /* TimeLog.m */; };
 		30639A0C1A2CF53F00AC9370 /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30639A0B1A2CF53F00AC9370 /* ActivityTableViewCell.m */; };
+		30639A161A2D218400AC9370 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 30639A151A2D218400AC9370 /* Note.m */; };
+		30639A1A1A2D319A00AC9370 /* NewNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30639A191A2D319A00AC9370 /* NewNoteViewController.m */; };
+		30639A1D1A2D36F900AC9370 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30639A1C1A2D36F900AC9370 /* AVFoundation.framework */; };
+		30639A2D1A2D648C00AC9370 /* NotesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30639A2C1A2D648C00AC9370 /* NotesTableViewController.m */; };
 		3071FB1919F8083F00A8C0DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB1819F8083F00A8C0DB /* main.m */; };
 		3071FB1C19F8083F00A8C0DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3071FB1B19F8083F00A8C0DB /* AppDelegate.m */; };
 		3071FB2519F8083F00A8C0DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3071FB2319F8083F00A8C0DB /* Main.storyboard */; };
@@ -48,6 +52,13 @@
 		300100D41A267F0300EEF27F /* TimeLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLog.m; sourceTree = "<group>"; };
 		30639A0A1A2CF53F00AC9370 /* ActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCell.h; sourceTree = "<group>"; };
 		30639A0B1A2CF53F00AC9370 /* ActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewCell.m; sourceTree = "<group>"; };
+		30639A141A2D218400AC9370 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		30639A151A2D218400AC9370 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		30639A181A2D319A00AC9370 /* NewNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNoteViewController.h; sourceTree = "<group>"; };
+		30639A191A2D319A00AC9370 /* NewNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNoteViewController.m; sourceTree = "<group>"; };
+		30639A1C1A2D36F900AC9370 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		30639A2B1A2D648C00AC9370 /* NotesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesTableViewController.h; sourceTree = "<group>"; };
+		30639A2C1A2D648C00AC9370 /* NotesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesTableViewController.m; sourceTree = "<group>"; };
 		3071FB1319F8083F00A8C0DB /* Nizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3071FB1719F8083F00A8C0DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3071FB1819F8083F00A8C0DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -85,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30639A1D1A2D36F900AC9370 /* AVFoundation.framework in Frameworks */,
 				30B2A1471A181F7900EDACA2 /* CoreData.framework in Frameworks */,
 				8737A5C31A1536F80090969D /* Social.framework in Frameworks */,
 			);
@@ -127,9 +139,37 @@
 			name = ActivityTableViewCell;
 			sourceTree = "<group>";
 		};
+		30639A171A2D219C00AC9370 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				30639A141A2D218400AC9370 /* Note.h */,
+				30639A151A2D218400AC9370 /* Note.m */,
+			);
+			name = Note;
+			sourceTree = "<group>";
+		};
+		30639A1B1A2D31B400AC9370 /* NewNoteViewController */ = {
+			isa = PBXGroup;
+			children = (
+				30639A181A2D319A00AC9370 /* NewNoteViewController.h */,
+				30639A191A2D319A00AC9370 /* NewNoteViewController.m */,
+			);
+			name = NewNoteViewController;
+			sourceTree = "<group>";
+		};
+		30639A2E1A2D648F00AC9370 /* NotesTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				30639A2B1A2D648C00AC9370 /* NotesTableViewController.h */,
+				30639A2C1A2D648C00AC9370 /* NotesTableViewController.m */,
+			);
+			name = NotesTableViewController;
+			sourceTree = "<group>";
+		};
 		3071FB0A19F8083F00A8C0DB = {
 			isa = PBXGroup;
 			children = (
+				30639A1C1A2D36F900AC9370 /* AVFoundation.framework */,
 				30B2A1461A181F7900EDACA2 /* CoreData.framework */,
 				8737A5C21A1536F80090969D /* Social.framework */,
 				309CD69B1A09C346009F7181 /* Default-568h@2x.png */,
@@ -169,6 +209,9 @@
 				300100D71A267F1C00EEF27F /* TimeLog */,
 				300100D61A267F1600EEF27F /* Activity */,
 				30639A0D1A2CF54400AC9370 /* ActivityTableViewCell */,
+				30639A171A2D219C00AC9370 /* Note */,
+				30639A1B1A2D31B400AC9370 /* NewNoteViewController */,
+				30639A2E1A2D648F00AC9370 /* NotesTableViewController */,
 			);
 			path = Nizer;
 			sourceTree = "<group>";
@@ -366,12 +409,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30639A161A2D218400AC9370 /* Note.m in Sources */,
 				300100D51A267F0300EEF27F /* TimeLog.m in Sources */,
 				30B2A1441A181F2400EDACA2 /* ApiBD.m in Sources */,
+				30639A1A1A2D319A00AC9370 /* NewNoteViewController.m in Sources */,
 				30639A0C1A2CF53F00AC9370 /* ActivityTableViewCell.m in Sources */,
 				30A01C991A0C35F600BD8FA6 /* NewActivityViewController.m in Sources */,
 				3071FB1C19F8083F00A8C0DB /* AppDelegate.m in Sources */,
 				30A01C9F1A0C393600BD8FA6 /* LogTableViewController.m in Sources */,
+				30639A2D1A2D648C00AC9370 /* NotesTableViewController.m in Sources */,
 				300100D21A267F0300EEF27F /* Activity.m in Sources */,
 				30B2A1411A18111700EDACA2 /* Model.xcdatamodeld in Sources */,
 				30A01C9C1A0C36B500BD8FA6 /* TimerViewController.m in Sources */,

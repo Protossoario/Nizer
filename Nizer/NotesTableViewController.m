@@ -1,20 +1,21 @@
 //
-//  LogTableViewController.m
+//  NotesTableViewController.m
 //  Nizer
 //
-//  Created by Eduardo Alberto Sanchez Alvarado on 11/6/14.
+//  Created by Eduardo Alberto Sanchez Alvarado on 12/1/14.
 //  Copyright (c) 2014 Eduardo Alberto Sanchez Alvarado. All rights reserved.
 //
 
-#import "LogTableViewController.h"
+#import "NotesTableViewController.h"
 
-@interface LogTableViewController () {
-    NSArray *activities;
+@interface NotesTableViewController () {
+    NSArray *notes;
+    AVAudioPlayer *player;
 }
 
 @end
 
-@implementation LogTableViewController
+@implementation NotesTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,19 +29,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.bd = [ApiBD getSharedInstance];
-
+    
+    notes = [[self.timelog notes] allObjects];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    activities = [self.bd getActivities];
-    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,36 +50,25 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [activities count];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [(Activity *)[activities objectAtIndex:section] name];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [[(Activity*)[activities objectAtIndex:section] timeLogs] count];
+    return [notes count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TimeLog" forIndexPath:indexPath];
-    NSArray *timelogs = [[[activities objectAtIndex:[indexPath section]] timeLogs] allObjects];
-    timelogs = [timelogs sortedArrayUsingComparator:^(id obj1, id obj2) {
-        TimeLog *timelog1 = obj1;
-        TimeLog *timelog2 = obj2;
-        return [timelog1.startDate compare:timelog2.startDate];
-    }];
-    TimeLog *timelog = timelogs[[indexPath row]];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd/MM/yy HH:mm:ss"];
-    NSString *startDate = [dateFormatter stringFromDate:timelog.startDate];
-    [dateFormatter setDateFormat:@"HH:mm:ss"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-    NSString *duration = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[timelog.duration doubleValue]]];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", startDate, duration];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"noteCell" forIndexPath:indexPath];
+    Note *note = notes[[indexPath row]];
+    if ([note.text isEqualToString:@""]) {
+        cell.textLabel.text = @"Voice-only note";
+    }
+    else {
+        cell.textLabel.text = note.text;
+    }
     
     return cell;
 }
@@ -126,17 +111,30 @@
 }
 */
 
+#pragma mark - TableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Note *note = notes[[indexPath row]];
+    
+    NSArray *pathComponents = [NSArray arrayWithObjects:
+                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0],
+                               note.voice,
+                               nil];
+    NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:outputFileURL error:nil];
+    [player setDelegate:self];
+    [player play];
+}
+
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"openNotes"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSArray *timelogs = [[[activities objectAtIndex:[indexPath section]] timeLogs] allObjects];
-        TimeLog *timelog = timelogs[[indexPath row]];
-        [(NotesTableViewController *)[segue destinationViewController] setTimelog:timelog];
-    }
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
+*/
 
 @end

@@ -10,6 +10,7 @@
 #import "ApiBD.h"
 #import "TimeLog.h"
 #import "Activity.h"
+#import "NotesTableViewController.h"
 
 @interface LogTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 

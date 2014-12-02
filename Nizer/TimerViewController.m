@@ -32,9 +32,11 @@
 {
     [super viewDidLoad];
     self.bd = [ApiBD getSharedInstance];
+    
     paused = YES;
     if (self.activity.running != nil) {
         NSLog(@"Cargando TimeLog suspendido.");
+        self.notes = [[NSMutableSet alloc] initWithSet:self.activity.running.notes];
         TimeLog *runningLog = self.activity.running;
         secondsAlreadyRun = [runningLog.duration doubleValue];
         self.firstStartDate = runningLog.startDate;
@@ -59,6 +61,7 @@
         }
     }
     else {
+        self.notes = [[NSMutableSet alloc] init];
         self.stopwatchLabel.text = @"00:00:00";
         secondsAlreadyRun = 0;
         started = NO;
@@ -74,22 +77,28 @@
         if (paused) {
             self.activity.running.duration = [NSNumber numberWithDouble:secondsAlreadyRun];
             self.activity.running.suspendDate = nil;
+            [self.activity.running addNotes:self.notes];
             [self.bd saveData];
         }
         else {
             [self pauseStopwatch:nil];
             self.activity.running.duration = [NSNumber numberWithDouble:secondsAlreadyRun];
             self.activity.running.suspendDate = [NSDate date];
+            [self.activity.running addNotes:self.notes];
             [self.bd saveData];
         }
     }
     else if (started && !finished) {
         if (paused) {
             [self.bd insertRunningTimeLog:[NSNumber numberWithDouble:secondsAlreadyRun] startDate:self.firstStartDate activity:self.activity suspendDate:nil];
+            [self.activity.running addNotes:self.notes];
+            [self.bd saveData];
         }
         else {
             [self pauseStopwatch:nil];
             [self.bd insertRunningTimeLog:[NSNumber numberWithDouble:secondsAlreadyRun] startDate:self.firstStartDate activity:self.activity suspendDate:[NSDate date]];
+            [self.activity.running addNotes:self.notes];
+            [self.bd saveData];
         }
     }
 }
@@ -146,13 +155,20 @@
 - (void)saveTimeLog {
     if (started && self.activity.running != nil) {
         self.activity.running.duration = [NSNumber numberWithDouble:secondsAlreadyRun];
+        [self.activity.running addNotes:self.notes];
+        NSLog(@"Cantidad de notas a guardar: %d", [self.activity.running.notes count]);
+        NSLog(@"Cantidad de notas guardadas: %d", [self.notes count]);
         [self.activity addTimeLogsObject:self.activity.running];
         self.activity.running = nil;
         [self.bd saveData];
     }
     else if (started) {
-        [self.bd insertTimeLog:[NSNumber numberWithDouble:secondsAlreadyRun] startDate:self.firstStartDate activity:self.activity];
+        [self.bd insertTimeLog:[NSNumber numberWithDouble:secondsAlreadyRun] startDate:self.firstStartDate activity:self.activity notes:self.notes];
     }
+}
+
+- (void)addNote:(Note *)note {
+    [self.notes addObject:note];
 }
 
 - (IBAction)fbButton:(id)sender {
@@ -210,6 +226,9 @@
     [self presentViewController:self.activityViewController animated:YES completion:nil];
 }
 
+- (IBAction)unwindToTimerViewController:(UIStoryboardSegue *)segue {
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -219,6 +238,10 @@
         [self pauseStopwatch:nil];
         [self saveTimeLog];
         finished = YES;
+    }
+    else if ([[segue identifier] isEqualToString:@"addNote"]) {
+        Note *note = [self.bd insertNote];
+        [(NewNoteViewController *)[segue destinationViewController] setNote:note];
     }
 }
 
