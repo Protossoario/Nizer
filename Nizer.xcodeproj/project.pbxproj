@@ -30,6 +30,13 @@
 		AC404CE51A1AE20E002979FA /* fb_icon_325x325.png in Resources */ = {isa = PBXBuildFile; fileRef = AC404CE41A1AE20E002979FA /* fb_icon_325x325.png */; };
 		AC404CE71A1AE232002979FA /* 728567main_twitter-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AC404CE61A1AE232002979FA /* 728567main_twitter-icon.png */; };
 		FB6D82501A2D38F800EF3CFA /* BarGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6D824F1A2D38F800EF3CFA /* BarGraphViewController.m */; };
+		FB6D82581A2D3BD700EF3CFA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6D82571A2D3BD700EF3CFA /* QuartzCore.framework */; };
+		FB6D825A1A2D3BE300EF3CFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6D82591A2D3BE300EF3CFA /* UIKit.framework */; };
+		FB6D825C1A2D3BF700EF3CFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6D825B1A2D3BF700EF3CFA /* CoreGraphics.framework */; };
+		FB6D825E1A2D3C0100EF3CFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6D825D1A2D3C0100EF3CFA /* Foundation.framework */; };
+		FB6D82631A2D3D5C00EF3CFA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6D82621A2D3D5C00EF3CFA /* Accelerate.framework */; };
+		FB6D82AE1A2D416F00EF3CFA /* CorePlotHeaders in Resources */ = {isa = PBXBuildFile; fileRef = FB6D82A91A2D3FEF00EF3CFA /* CorePlotHeaders */; };
+		FB6D82B01A2D433000EF3CFA /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6D82AF1A2D433000EF3CFA /* libCorePlot-CocoaTouch.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +88,13 @@
 		AC404CE61A1AE232002979FA /* 728567main_twitter-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "728567main_twitter-icon.png"; sourceTree = "<group>"; };
 		FB6D824E1A2D38F800EF3CFA /* BarGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarGraphViewController.h; sourceTree = "<group>"; };
 		FB6D824F1A2D38F800EF3CFA /* BarGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarGraphViewController.m; sourceTree = "<group>"; };
+		FB6D82571A2D3BD700EF3CFA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FB6D82591A2D3BE300EF3CFA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FB6D825B1A2D3BF700EF3CFA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FB6D825D1A2D3C0100EF3CFA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FB6D82621A2D3D5C00EF3CFA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		FB6D82A91A2D3FEF00EF3CFA /* CorePlotHeaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CorePlotHeaders; path = ../CorePlotHeaders; sourceTree = "<group>"; };
+		FB6D82AF1A2D433000EF3CFA /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +102,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB6D82631A2D3D5C00EF3CFA /* Accelerate.framework in Frameworks */,
+				FB6D825E1A2D3C0100EF3CFA /* Foundation.framework in Frameworks */,
+				FB6D825C1A2D3BF700EF3CFA /* CoreGraphics.framework in Frameworks */,
+				FB6D82B01A2D433000EF3CFA /* libCorePlot-CocoaTouch.a in Frameworks */,
+				FB6D825A1A2D3BE300EF3CFA /* UIKit.framework in Frameworks */,
+				FB6D82581A2D3BD700EF3CFA /* QuartzCore.framework in Frameworks */,
 				30B2A1471A181F7900EDACA2 /* CoreData.framework in Frameworks */,
 				8737A5C31A1536F80090969D /* Social.framework in Frameworks */,
 			);
@@ -133,6 +153,11 @@
 		3071FB0A19F8083F00A8C0DB = {
 			isa = PBXGroup;
 			children = (
+				FB6D82621A2D3D5C00EF3CFA /* Accelerate.framework */,
+				FB6D825D1A2D3C0100EF3CFA /* Foundation.framework */,
+				FB6D825B1A2D3BF700EF3CFA /* CoreGraphics.framework */,
+				FB6D82591A2D3BE300EF3CFA /* UIKit.framework */,
+				FB6D82571A2D3BD700EF3CFA /* QuartzCore.framework */,
 				30B2A1461A181F7900EDACA2 /* CoreData.framework */,
 				8737A5C21A1536F80090969D /* Social.framework */,
 				309CD69B1A09C346009F7181 /* Default-568h@2x.png */,
@@ -154,6 +179,8 @@
 		3071FB1519F8083F00A8C0DB /* Nizer */ = {
 			isa = PBXGroup;
 			children = (
+				FB6D82AF1A2D433000EF3CFA /* libCorePlot-CocoaTouch.a */,
+				FB6D82A91A2D3FEF00EF3CFA /* CorePlotHeaders */,
 				3071FB2319F8083F00A8C0DB /* Main.storyboard */,
 				FB6D82511A2D390000EF3CFA /* BarGraph */,
 				AC404CE61A1AE232002979FA /* 728567main_twitter-icon.png */,
@@ -355,6 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB6D82AE1A2D416F00EF3CFA /* CorePlotHeaders in Resources */,
 				3071FB4019F81DD600A8C0DB /* deal-active-icon.png in Resources */,
 				AC404CE51A1AE20E002979FA /* fb_icon_325x325.png in Resources */,
 				3071FB2519F8083F00A8C0DB /* Main.storyboard in Resources */,
@@ -508,6 +536,11 @@
 				INFOPLIST_FILE = Nizer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Nizer",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -520,6 +553,11 @@
 				INFOPLIST_FILE = Nizer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Nizer",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

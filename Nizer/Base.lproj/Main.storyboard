@@ -178,7 +178,7 @@
                                                     <action selector="startStopwatch:" destination="IrC-Ay-6Tk" eventType="touchUpInside" id="JVv-sH-mFC"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52o-9f-syk">
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52o-9f-syk">
                                                 <rect key="frame" x="227" y="144" width="43" height="30"/>
                                                 <state key="normal" title="Pause">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
