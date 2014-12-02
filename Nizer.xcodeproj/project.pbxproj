@@ -113,6 +113,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB6D82631A2D3D5C00EF3CFA /* Accelerate.framework in Frameworks */,
+				FB6D825E1A2D3C0100EF3CFA /* Foundation.framework in Frameworks */,
+				FB6D825C1A2D3BF700EF3CFA /* CoreGraphics.framework in Frameworks */,
+				FB6D82B01A2D433000EF3CFA /* libCorePlot-CocoaTouch.a in Frameworks */,
+				FB6D825A1A2D3BE300EF3CFA /* UIKit.framework in Frameworks */,
+				FB6D82581A2D3BD700EF3CFA /* QuartzCore.framework in Frameworks */,
 				30639A1D1A2D36F900AC9370 /* AVFoundation.framework in Frameworks */,
 				30B2A1471A181F7900EDACA2 /* CoreData.framework in Frameworks */,
 				8737A5C31A1536F80090969D /* Social.framework in Frameworks */,
@@ -186,6 +192,11 @@
 		3071FB0A19F8083F00A8C0DB = {
 			isa = PBXGroup;
 			children = (
+				FB6D82621A2D3D5C00EF3CFA /* Accelerate.framework */,
+				FB6D825D1A2D3C0100EF3CFA /* Foundation.framework */,
+				FB6D825B1A2D3BF700EF3CFA /* CoreGraphics.framework */,
+				FB6D82591A2D3BE300EF3CFA /* UIKit.framework */,
+				FB6D82571A2D3BD700EF3CFA /* QuartzCore.framework */,
 				30639A1C1A2D36F900AC9370 /* AVFoundation.framework */,
 				30B2A1461A181F7900EDACA2 /* CoreData.framework */,
 				8737A5C21A1536F80090969D /* Social.framework */,
