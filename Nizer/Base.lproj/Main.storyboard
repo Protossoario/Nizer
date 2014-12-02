@@ -178,7 +178,7 @@
                                                     <action selector="startStopwatch:" destination="IrC-Ay-6Tk" eventType="touchUpInside" id="JVv-sH-mFC"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52o-9f-syk">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52o-9f-syk">
                                                 <rect key="frame" x="227" y="144" width="43" height="30"/>
                                                 <state key="normal" title="Pause">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -440,6 +440,25 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="795"/>
         </scene>
+        <!--View Controller - Graph-->
+        <scene sceneID="pzr-at-MJS">
+            <objects>
+                <viewController id="YD3-dV-A8b" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rbu-D5-WEC"/>
+                        <viewControllerLayoutGuide type="bottom" id="9qy-DC-7n3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VsL-kY-OhZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Graph" id="ru1-Fh-Hjx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TEC-gz-pBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="398" y="810"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -454,6 +473,7 @@
                         <segue destination="Fyt-kL-eA7" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="CJt-Sn-fGR" kind="relationship" relationship="viewControllers" id="7XU-n0-YBq"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="YD3-dV-A8b" kind="relationship" relationship="viewControllers" id="2ua-H3-Xq8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>

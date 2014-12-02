@@ -29,6 +29,7 @@
 		8737A5C31A1536F80090969D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8737A5C21A1536F80090969D /* Social.framework */; };
 		AC404CE51A1AE20E002979FA /* fb_icon_325x325.png in Resources */ = {isa = PBXBuildFile; fileRef = AC404CE41A1AE20E002979FA /* fb_icon_325x325.png */; };
 		AC404CE71A1AE232002979FA /* 728567main_twitter-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AC404CE61A1AE232002979FA /* 728567main_twitter-icon.png */; };
+		FB6D82501A2D38F800EF3CFA /* BarGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6D824F1A2D38F800EF3CFA /* BarGraphViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		8737A5C21A1536F80090969D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		AC404CE41A1AE20E002979FA /* fb_icon_325x325.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_icon_325x325.png; sourceTree = "<group>"; };
 		AC404CE61A1AE232002979FA /* 728567main_twitter-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "728567main_twitter-icon.png"; sourceTree = "<group>"; };
+		FB6D824E1A2D38F800EF3CFA /* BarGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarGraphViewController.h; sourceTree = "<group>"; };
+		FB6D824F1A2D38F800EF3CFA /* BarGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarGraphViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				3071FB2319F8083F00A8C0DB /* Main.storyboard */,
+				FB6D82511A2D390000EF3CFA /* BarGraph */,
 				AC404CE61A1AE232002979FA /* 728567main_twitter-icon.png */,
 				AC404CE41A1AE20E002979FA /* fb_icon_325x325.png */,
 				3071FB4119F81DDB00A8C0DB /* Active_Icons_Exercise.gif */,
@@ -262,6 +266,15 @@
 			name = ActivityTableViewController;
 			sourceTree = "<group>";
 		};
+		FB6D82511A2D390000EF3CFA /* BarGraph */ = {
+			isa = PBXGroup;
+			children = (
+				FB6D824E1A2D38F800EF3CFA /* BarGraphViewController.h */,
+				FB6D824F1A2D38F800EF3CFA /* BarGraphViewController.m */,
+			);
+			name = BarGraph;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -369,6 +382,7 @@
 				300100D51A267F0300EEF27F /* TimeLog.m in Sources */,
 				30B2A1441A181F2400EDACA2 /* ApiBD.m in Sources */,
 				30639A0C1A2CF53F00AC9370 /* ActivityTableViewCell.m in Sources */,
+				FB6D82501A2D38F800EF3CFA /* BarGraphViewController.m in Sources */,
 				30A01C991A0C35F600BD8FA6 /* NewActivityViewController.m in Sources */,
 				3071FB1C19F8083F00A8C0DB /* AppDelegate.m in Sources */,
 				30A01C9F1A0C393600BD8FA6 /* LogTableViewController.m in Sources */,
