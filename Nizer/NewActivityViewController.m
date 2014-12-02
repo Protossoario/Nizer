@@ -79,8 +79,6 @@
             break;
     }
     
-    localNotification.repeatInterval=NSMinuteCalendarUnit;
-    
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 
     
