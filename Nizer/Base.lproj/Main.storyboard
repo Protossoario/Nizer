@@ -509,10 +509,33 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Config" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="myswitch" destination="s3r-vd-6Vd" id="UIa-PB-e7t"/>
+                        <outlet property="notificationsLabel" destination="Cw0-Fg-maX" id="qSE-Mw-zJS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="795"/>
+        </scene>
+        <!--Bar Graph View Controller - Graph-->
+        <scene sceneID="pzr-at-MJS">
+            <objects>
+                <viewController id="YD3-dV-A8b" customClass="BarGraphViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rbu-D5-WEC"/>
+                        <viewControllerLayoutGuide type="bottom" id="9qy-DC-7n3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VsL-kY-OhZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Graph" id="ru1-Fh-Hjx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TEC-gz-pBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="398" y="810"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -528,6 +551,7 @@
                         <segue destination="Fyt-kL-eA7" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="CJt-Sn-fGR" kind="relationship" relationship="viewControllers" id="7XU-n0-YBq"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="YD3-dV-A8b" kind="relationship" relationship="viewControllers" id="2ua-H3-Xq8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>

@@ -2,8 +2,8 @@
 //  ConfigViewController.m
 //  Nizer
 //
-//  Created by Eduardo Alberto Sanchez Alvarado on 11/6/14.
-//  Copyright (c) 2014 Eduardo Alberto Sanchez Alvarado. All rights reserved.
+//  Created by Equipo Nizer on 11/6/14.
+//  Copyright (c) 2014 Equipo Nizer. All rights reserved.
 //
 
 #import "ConfigViewController.h"
@@ -26,7 +26,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.myswitch addTarget:self
+                      action:@selector(stateChanged:) forControlEvents:UIControlEventValueChanged];
     // Do any additional setup after loading the view.
+}
+
+- (void)stateChanged:(UISwitch *)switchState
+{
+    if ([switchState isOn]) {
+        self.notificationsLabel.text = @"Notifications";
+    } else {
+        self.notificationsLabel.text = @"No Notifications";
+         [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Notifications Gone" message:@"Notifications have been disabled for all activities. In order to see them again you must re-add the activities." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,6 +48,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation

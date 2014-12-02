@@ -2,8 +2,8 @@
 //  ActivityTableViewCell.m
 //  Nizer
 //
-//  Created by Eduardo Alberto Sanchez Alvarado on 12/1/14.
-//  Copyright (c) 2014 Eduardo Alberto Sanchez Alvarado. All rights reserved.
+//  Created by Equipo Nizer on 12/1/14.
+//  Copyright (c) 2014 Equipo Nizer. All rights reserved.
 //
 
 #import "ActivityTableViewCell.h"
