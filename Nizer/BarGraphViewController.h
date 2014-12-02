@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CorePlotHeaders/CorePlot-CocoaTouch.h"
+#import "ApiBD.h"
+#import "Activity.h"
+#import "TimeLog.h"
 
 @interface BarGraphViewController : UIViewController <CPTBarPlotDataSource, CPTBarPlotDelegate>
 

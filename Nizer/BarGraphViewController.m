@@ -12,7 +12,7 @@ CGFloat const CPDBarWidth = 0.15f;
 CGFloat const CPDBarInitialX = 0.15f;
 
 @interface BarGraphViewController () {
-    NSDictionary *actividades;
+    NSMutableDictionary *actividades;
 }
 
 @property (nonatomic, strong)  CPTGraphHostingView *hostView;
@@ -25,8 +25,6 @@ CGFloat const CPDBarInitialX = 0.15f;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    actividades = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithDouble:15.0],@"Correr", [NSNumber numberWithDouble:20.0],@"Tarea", [NSNumber numberWithDouble:65.1],@"Dormir", nil];
 }
 
 -(void) viewDidAppear:(BOOL)animated {
@@ -105,14 +103,23 @@ CGFloat const CPDBarInitialX = 0.15f;
 
 -(void)initPlot
 {
+    NSArray *activities = [[ApiBD getSharedInstance] getActivities];
+    actividades = [[NSMutableDictionary alloc] init];
+    for (Activity *activity in activities) {
+        NSArray *timelogs = [activity.timeLogs allObjects];
+        double totalTime = 0.0;
+        for (TimeLog *timelog in timelogs) {
+            totalTime += [[timelog duration] doubleValue];
+        }
+        [actividades setValue:[NSNumber numberWithDouble:totalTime] forKey:activity.name];
+    }
     [self configureHost];
     [self configureGraph];
     [self configurePlots];
     [self configureAxes];
 }
 
--(void)configureHost{
-    
+-(void)configureHost {
     // 1 - Create host view
     self.hostView = [(CPTGraphHostingView *) [CPTGraphHostingView alloc] initWithFrame:self.view.bounds];
     self.hostView.allowPinchScaling = NO;
@@ -277,7 +284,5 @@ CGFloat const CPDBarInitialX = 0.15f;
     axisSet.yAxis.titleOffset = 5.0f;
     axisSet.yAxis.axisLineStyle = axisLineStyle;
 }
-
-
 
 @end
