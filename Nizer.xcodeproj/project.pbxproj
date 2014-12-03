@@ -222,7 +222,7 @@
 				FB6D82AF1A2D433000EF3CFA /* libCorePlot-CocoaTouch.a */,
 				FB6D82A91A2D3FEF00EF3CFA /* CorePlotHeaders */,
 				3071FB2319F8083F00A8C0DB /* Main.storyboard */,
-				FB6D82511A2D390000EF3CFA /* BarGraph */,
+				FB6D82511A2D390000EF3CFA /* BarGraphViewController */,
 				AC404CE61A1AE232002979FA /* 728567main_twitter-icon.png */,
 				AC404CE41A1AE20E002979FA /* fb_icon_325x325.png */,
 				3071FB4119F81DDB00A8C0DB /* Active_Icons_Exercise.gif */,
@@ -336,13 +336,13 @@
 			name = ActivityTableViewController;
 			sourceTree = "<group>";
 		};
-		FB6D82511A2D390000EF3CFA /* BarGraph */ = {
+		FB6D82511A2D390000EF3CFA /* BarGraphViewController */ = {
 			isa = PBXGroup;
 			children = (
 				FB6D824E1A2D38F800EF3CFA /* BarGraphViewController.h */,
 				FB6D824F1A2D38F800EF3CFA /* BarGraphViewController.m */,
 			);
-			name = BarGraph;
+			name = BarGraphViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

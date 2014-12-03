@@ -20,6 +20,8 @@
 @property (nonatomic, retain) TimeLog *running;
 @property (nonatomic, retain) NSSet *timeLogs;
 
+- (NSNumber *)getTotalTime;
+
 @end
 
 @interface Activity (CoreDataGeneratedAccessors)

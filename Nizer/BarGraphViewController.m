@@ -8,11 +8,8 @@
 
 #import "BarGraphViewController.h"
 
-CGFloat const CPDBarWidth = 0.15f;
-CGFloat const CPDBarInitialX = 0.15f;
-
 @interface BarGraphViewController () {
-    NSMutableDictionary *actividades;
+    NSArray *activities;
 }
 
 @property (nonatomic, strong)  CPTGraphHostingView *hostView;
@@ -30,6 +27,8 @@ CGFloat const CPDBarInitialX = 0.15f;
 -(void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    activities = [[ApiBD getSharedInstance] getActivities];
+    
     [self initPlot];
 }
 
@@ -41,17 +40,18 @@ CGFloat const CPDBarInitialX = 0.15f;
 
 #pragma mark - CPTPlotDataSource methods
 -(NSUInteger) numberOfRecordsForPlot:(CPTPlot *)plot {
-    return 1;
+    return [activities count];
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index {
+    Activity *activity = [activities objectAtIndex:index];
     switch (fieldEnum) {
         case CPTBarPlotFieldBarLocation:
-            return @(index);
+            return [NSNumber numberWithFloat:(index * ([self calculateBarWidth] + [self calculateBarOffset]))];
             break;
             
         case CPTBarPlotFieldBarTip:
-            return [actividades objectForKey:plot.identifier];
+            return [activity getTotalTime];
             break;
             
         default:
@@ -60,8 +60,46 @@ CGFloat const CPDBarInitialX = 0.15f;
     return nil;
 }
 
+- (CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)idx {
+    CPTMutableTextStyle *textStyle = [[CPTMutableTextStyle alloc] init];
+    textStyle.fontName = @"Helvetica";
+    textStyle.fontSize = 8.0f;
+    textStyle.color = [CPTColor blackColor];
+    
+    Activity *activity = [activities objectAtIndex:idx];
+    CPTTextLayer *label = [[CPTTextLayer alloc] initWithText:activity.name];
+    label.textStyle = textStyle;
+    
+    return label;
+}
+
+- (CPTFill *)barFillForBarPlot:(CPTBarPlot *)barPlot recordIndex:(NSUInteger)idx {
+    return [CPTFill fillWithColor:[self colorForIndex:idx]];
+}
+
+- (CPTColor *)colorForIndex:(NSUInteger)index {
+    switch (index % 7) {
+        case 0:
+            return [CPTColor blueColor];
+        case 1:
+            return [CPTColor greenColor];
+        case 2:
+            return [CPTColor redColor];
+        case 3:
+            return [CPTColor cyanColor];
+        case 4:
+            return [CPTColor purpleColor];
+        case 5:
+            return [CPTColor orangeColor];
+        case 6:
+            return [CPTColor magentaColor];
+        default:
+            return [CPTColor blackColor];
+    }
+}
+
 #pragma mark - CPTBarPlotDelegate methods
--(void)barPlot:(CPTBarPlot *)plot barWasSelectedAtRecordIndex:(NSUInteger)index {
+/*-(void)barPlot:(CPTBarPlot *)plot barWasSelectedAtRecordIndex:(NSUInteger)index {
     //1- Crear estilo
     CPTMutableTextStyle *style = [CPTMutableTextStyle textStyle];
     style.color = [CPTColor blueColor];
@@ -98,21 +136,10 @@ CGFloat const CPDBarInitialX = 0.15f;
     
     //8 add annotation
     [plot.graph.plotAreaFrame.plotArea addAnnotation:self.timeAnnotation];
-    
-}
+}*/
 
 -(void)initPlot
 {
-    NSArray *activities = [[ApiBD getSharedInstance] getActivities];
-    actividades = [[NSMutableDictionary alloc] init];
-    for (Activity *activity in activities) {
-        NSArray *timelogs = [activity.timeLogs allObjects];
-        double totalTime = 0.0;
-        for (TimeLog *timelog in timelogs) {
-            totalTime += [[timelog duration] doubleValue];
-        }
-        [actividades setValue:[NSNumber numberWithDouble:totalTime] forKey:activity.name];
-    }
     [self configureHost];
     [self configureGraph];
     [self configurePlots];
@@ -131,13 +158,12 @@ CGFloat const CPDBarInitialX = 0.15f;
 
 -(float) maxTime
 {
-    NSArray *timeArray = [actividades allValues];
+    float maxTime = 0.0f;
     
-    CGFloat maxTime = 0.0f;
-    
-    for (int i = 0; i < [timeArray count]; i++) {
-        if ([(NSNumber*)[timeArray objectAtIndex:i] floatValue] > maxTime) {
-            maxTime = [(NSNumber*)[timeArray objectAtIndex:i] floatValue];
+    for (Activity *activity in activities) {
+        float totalTime = [[activity getTotalTime] floatValue];
+        if (totalTime > maxTime) {
+            maxTime = totalTime;
         }
     }
     
@@ -163,7 +189,7 @@ CGFloat const CPDBarInitialX = 0.15f;
     titleStyle.fontSize = 16.0f;
     
     // 4 - Inicializa el título de la gráfica
-    NSString *title = @"Historial de actividades";
+    NSString *title = @"Total Time by Activity";
     graph.title = title;
     graph.titleTextStyle = titleStyle;
     graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
@@ -171,18 +197,17 @@ CGFloat const CPDBarInitialX = 0.15f;
     
     // 5 - Inicializa el espacio en donde se van a dibujar las barras (plotSpace)
     CGFloat xMin = 0.0f;
-    // cantidad de valores a graficar
-    CGFloat xMax = [actividades count];  //cantidad de actividades
+    CGFloat xMax = 100.0f;
     CGFloat yMin = 0.0f;
-    CGFloat yMax = [self maxTime] + 5.0f;  // should determine dynamically based on activities
+    CGFloat yMax = [self maxTime];  // should determine dynamically based on activities
     
     //A plot space using a two-dimensional cartesian coordinate system.
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     
     //The xRange and yRange determine the mapping between data coordinates and the screen coordinates in the plot area.
     // dependiendo de los rangos de valores en x y y se ponen los tick-mark
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xMin) length:CPTDecimalFromFloat(xMax)];
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(yMin) length:CPTDecimalFromFloat(yMax)];
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xMin) length:CPTDecimalFromFloat(xMax - xMin + 5)];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(yMin) length:CPTDecimalFromFloat(yMax - yMin + (yMax / 5.0))];
     
     // 6- Inicializa el tema para la gráfica
     [graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
@@ -194,95 +219,70 @@ CGFloat const CPDBarInitialX = 0.15f;
     // 1 - Obtiene la referencia de la gráfica
     CPTGraph *graph = self.hostView.hostedGraph;
     
-    CPTMutableLineStyle *barLineStyle = [[CPTMutableLineStyle alloc] init];
-    barLineStyle.lineColor = [CPTColor lightGrayColor];
-    barLineStyle.lineWidth = 0.5;
+    CPTMutableLineStyle *borderLineStyle = [CPTMutableLineStyle lineStyle];
+    borderLineStyle.lineColor = [CPTColor clearColor];
     
-    CGFloat barX = CPDBarInitialX;
-    
-    // 2 - Configura el id y color de las 3 barras
-    NSArray *nameActivities = [actividades allKeys];
-    for (NSString *name in nameActivities) {
-        CPTBarPlot *plot = [CPTBarPlot tubularBarPlotWithColor:[CPTColor redColor] horizontalBars:NO];
-        plot.identifier = name;
-        plot.dataSource = self;
-        plot.delegate = self;
-        plot.barWidth = CPTDecimalFromDouble(CPDBarWidth);
-        plot.barOffset = CPTDecimalFromDouble(barX);
-        plot.lineStyle = barLineStyle;
-        [graph addPlot:plot toPlotSpace:graph.defaultPlotSpace];
-        barX += CPDBarWidth;
-    }
-    
-    // 3 - Configura el tipo y grueso de linea para dibujar el contorno de la barra
-    
-    //NSArray *plots = [NSArray arrayWithObjects:self.aaplPlot, self.googPlot, self.msftPlot, nil];
-    
-    // agrega cada una de las barras a dibujar
-    /*for (CPTBarPlot *plot in plots) {
-     
-     }*/
-    
+    CPTBarPlot *plot = [[CPTBarPlot alloc] init];
+    plot.dataSource = self;
+    plot.delegate = self;
+    plot.barWidth = [[NSNumber numberWithFloat:[self calculateBarWidth]] decimalValue];
+    plot.barOffset = [[NSNumber numberWithFloat:[self calculateBarOffset]] decimalValue];
+    plot.barCornerRadius = 5.0;
+    plot.lineStyle = borderLineStyle;
+    [graph addPlot:plot];
 }
 
--(NSArray *) stringToAxisLabel {
-    NSArray *nameActivities = [actividades allKeys];
-    
-    NSMutableArray *labelArray = [NSMutableArray array];
-    CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
-    [textStyle setFontSize:10];
-    
-    for (int i = 0; i < [nameActivities count]; i++)
-    {
-        CPTAxisLabel *axisLabel = [[CPTAxisLabel alloc] initWithText:[nameActivities objectAtIndex:i] textStyle:textStyle];
-        [axisLabel setTickLocation:CPTDecimalFromInt(i + 1)];
-        [axisLabel setRotation:M_PI/4];
-        [axisLabel setOffset:0.1];
-        [labelArray addObject:axisLabel];
-    }
-    
-    return [NSArray arrayWithArray:labelArray];
+- (CGFloat)calculateBarWidth {
+    int numberOfActivities = [activities count];
+    return (100.0 - numberOfActivities * [self calculateBarOffset]) / numberOfActivities;
+}
+
+- (CGFloat)calculateBarOffset {
+    return 10.0f;
 }
 
 -(void)configureAxes
 {
     // 1 - Configura el estilo de los ejes
     CPTMutableTextStyle *axisTitleStyle = [CPTMutableTextStyle textStyle];
-    axisTitleStyle.color = [CPTColor blueColor];
-    axisTitleStyle.fontName = @"Helvetica-Bold";
-    axisTitleStyle.fontSize = 8.0f;
+    axisTitleStyle.color = [CPTColor blackColor];
+    axisTitleStyle.fontName = @"Helvetica";
+    axisTitleStyle.fontSize = 14.0f;
     CPTMutableLineStyle *axisLineStyle = [CPTMutableLineStyle lineStyle];
-    axisLineStyle.lineWidth = 2.0f;
-    axisLineStyle.lineColor = [[CPTColor blackColor] colorWithAlphaComponent:1];
+    axisLineStyle.lineWidth = 1.0f;
+    axisLineStyle.lineColor = [CPTColor blackColor];
     
     // 2 - Get the graph's axis set
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *) self.hostView.hostedGraph.axisSet;
     
-    // 3 - Configure the x-axis
-    axisSet.xAxis.labelingPolicy = CPTAxisLabelingPolicyNone;
-    axisSet.xAxis.title = @"Actividades";
+    axisSet.xAxis.title = @"Activities";
     axisSet.xAxis.titleTextStyle = axisTitleStyle;
-    axisSet.xAxis.titleOffset = 10.0f;
+    axisSet.xAxis.titleOffset = 5.0f;
+    axisSet.xAxis.labelTextStyle = axisTitleStyle;
+    axisSet.xAxis.labelOffset = 3.0f;
     
-    CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
-    [textStyle setFontSize:12.0f];
-    [textStyle setColor:[CPTColor colorWithCGColor:[[UIColor grayColor] CGColor]]];
-    
-    [axisSet.xAxis setMinorTickLineStyle:nil];
-    [axisSet.xAxis setLabelingPolicy:CPTAxisLabelingPolicyNone];
-    [axisSet.xAxis setLabelTextStyle:textStyle];
-    [axisSet.xAxis setLabelRotation:M_PI/4];
-    
-    NSArray *activityArray = [self stringToAxisLabel];
-    [axisSet.xAxis setAxisLabels:[NSSet setWithArray:activityArray]];
-    //axisSet.xAxis.axisLineStyle = axisLineStyle;
-    
-    // 4 - Configure the y-axis
-    axisSet.yAxis.labelingPolicy = CPTAxisLabelingPolicyNone;
-    axisSet.yAxis.title = @"Tiempo";
+    axisSet.xAxis.axisLineStyle = axisLineStyle;
+    /*axisSet.xAxis.majorTickLineStyle = axisLineStyle;
+    axisSet.xAxis.majorIntervalLength = CPTDecimalFromFloat(5.0f);
+    axisSet.xAxis.majorTickLength = 7.0f;
+    axisSet.xAxis.minorTickLineStyle = axisLineStyle;
+    axisSet.xAxis.minorTicksPerInterval = 1;
+    axisSet.xAxis.minorTickLength = 5.0f;*/
+
+    axisSet.yAxis.title = @"Time";
     axisSet.yAxis.titleTextStyle = axisTitleStyle;
     axisSet.yAxis.titleOffset = 5.0f;
+    axisSet.yAxis.labelTextStyle = axisTitleStyle;
+    axisSet.yAxis.labelOffset = 3.0f;
+    
+    
     axisSet.yAxis.axisLineStyle = axisLineStyle;
+    axisSet.yAxis.majorTickLineStyle = axisLineStyle;
+    axisSet.yAxis.majorIntervalLength = CPTDecimalFromFloat(60.0f);
+    axisSet.yAxis.majorTickLength = 5.0f;
+    axisSet.yAxis.minorTickLineStyle = axisLineStyle;
+    axisSet.yAxis.minorTicksPerInterval = 1;
+    axisSet.yAxis.minorTickLength = 3.0f;
 }
 
 @end

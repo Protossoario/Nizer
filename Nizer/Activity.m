@@ -10,7 +10,9 @@
 #import "TimeLog.h"
 
 
-@implementation Activity
+@implementation Activity {
+    NSNumber *totalTime;
+}
 
 @dynamic category;
 @dynamic date;
@@ -18,5 +20,17 @@
 @dynamic repeat;
 @dynamic running;
 @dynamic timeLogs;
+
+- (NSNumber*)getTotalTime {
+    if (totalTime) {
+        return totalTime;
+    }
+    double sum = 0.0;
+    for (TimeLog *t in self.timeLogs) {
+        sum += [t.duration doubleValue];
+    }
+    totalTime = [NSNumber numberWithDouble:sum];
+    return totalTime;
+}
 
 @end
