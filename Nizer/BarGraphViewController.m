@@ -74,7 +74,12 @@
 }
 
 - (CPTFill *)barFillForBarPlot:(CPTBarPlot *)barPlot recordIndex:(NSUInteger)idx {
-    return [CPTFill fillWithColor:[self colorForIndex:idx]];
+    CPTGradient *gradient = [CPTGradient gradientWithBeginningColor:[CPTColor whiteColor]
+                                                        endingColor:[self colorForIndex:idx]
+                                                  beginningPosition:0.0 endingPosition:0.3 ];
+    [gradient setGradientType:CPTGradientTypeAxial];
+    [gradient setAngle:320.0];
+    return [CPTFill fillWithGradient:gradient];
 }
 
 - (CPTColor *)colorForIndex:(NSUInteger)index {
